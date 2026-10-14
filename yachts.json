@@ -1,0 +1,791 @@
+[
+  {
+    "marka": "Fairline",
+    "ulke": "İngiltere",
+    "seriler": [
+      {
+        "seri_adi": "Targa",
+        "modeller": [
+          { "ad": "27", "boy": "8.6 m", "en": "3.1 m", "motor": "2x Volvo Penta", "hiz": "30 Knot" },
+          { "ad": "33", "boy": "10.4 m", "en": "3.4 m", "motor": "2x Volvo Penta", "hiz": "31 Knot" },
+          { "ad": "38", "boy": "12.1 m", "en": "3.6 m", "motor": "2x Volvo D4", "hiz": "33 Knot" },
+          { "ad": "40", "boy": "12.6 m", "en": "3.7 m", "motor": "2x Volvo D6", "hiz": "35 Knot" },
+          { "ad": "43", "boy": "13.8 m", "en": "4.1 m", "motor": "2x Volvo IPS 600", "hiz": "32 Knot" },
+          { "ad": "44", "boy": "13.9 m", "en": "4.0 m", "motor": "2x Volvo IPS 500", "hiz": "31 Knot" },
+          { "ad": "45 OPEN/GT", "boy": "14.2 m", "en": "4.3 m", "motor": "2x Volvo IPS 650", "hiz": "32 Knot" },
+          { "ad": "48", "boy": "15.4 m", "en": "4.5 m", "motor": "2x Volvo IPS 700", "hiz": "31 Knot" },
+          { "ad": "50", "boy": "15.6 m", "en": "4.4 m", "motor": "2x Volvo IPS 600", "hiz": "31 Knot" },
+          { "ad": "62", "boy": "19.0 m", "en": "5.0 m", "motor": "2x MAN V8", "hiz": "35 Knot" },
+          { "ad": "65 GT", "boy": "19.8 m", "en": "5.2 m", "motor": "2x CAT C18", "hiz": "34 Knot" }
+        ]
+      },
+      {
+        "seri_adi": "Squadron",
+        "modeller": [
+          { "ad": "42", "boy": "12.9 m", "en": "4.2 m", "motor": "2x Volvo D6", "hiz": "30 Knot" },
+          { "ad": "50", "boy": "15.6 m", "en": "4.4 m", "motor": "2x Volvo IPS 800", "hiz": "31 Knot" },
+          { "ad": "53", "boy": "16.9 m", "en": "4.5 m", "motor": "2x Volvo D11", "hiz": "32 Knot" },
+          { "ad": "55", "boy": "17.1 m", "en": "4.8 m", "motor": "2x Volvo D13", "hiz": "32 Knot" },
+          { "ad": "58", "boy": "17.9 m", "en": "4.8 m", "motor": "2x Volvo D13", "hiz": "31 Knot" },
+          { "ad": "65", "boy": "20.4 m", "en": "5.2 m", "motor": "2x CAT C18", "hiz": "33 Knot" },
+          { "ad": "68", "boy": "21.1 m", "en": "5.2 m", "motor": "2x MAN V8", "hiz": "33 Knot" },
+          { "ad": "74", "boy": "22.7 m", "en": "5.7 m", "motor": "2x MAN V12", "hiz": "32 Knot" }
+        ]
+      },
+      {
+        "seri_adi": "Phantom",
+        "modeller": [
+          { "ad": "38", "boy": "11.9 m", "en": "3.8 m", "motor": "2x Volvo Penta", "hiz": "29 Knot" },
+          { "ad": "40", "boy": "12.5 m", "en": "4.0 m", "motor": "2x Volvo D6", "hiz": "30 Knot" },
+          { "ad": "46", "boy": "14.6 m", "en": "4.3 m", "motor": "2x Volvo TAMD", "hiz": "30 Knot" },
+          { "ad": "65", "boy": "19.9 m", "en": "5.2 m", "motor": "2x CAT C18", "hiz": "35 Knot" }
+        ]
+      }
+    ]
+  },
+  {
+    "marka": "Princess Yachts",
+    "ulke": "İngiltere",
+    "seriler": [
+      {
+        "seri_adi": "V Serisi (Hardtop)",
+        "modeller": [
+          { "ad": "V39", "boy": "12.0 m", "en": "3.8 m", "motor": "2x Volvo D6", "hiz": "37 Knot" },
+          { "ad": "V40", "boy": "12.9 m", "en": "3.8 m", "motor": "2x Volvo D6", "hiz": "38 Knot" },
+          { "ad": "V42", "boy": "13.5 m", "en": "3.9 m", "motor": "2x Volvo D6", "hiz": "36 Knot" },
+          { "ad": "V45", "boy": "14.3 m", "en": "4.1 m", "motor": "2x Volvo D6", "hiz": "35 Knot" },
+          { "ad": "V48", "boy": "15.5 m", "en": "4.1 m", "motor": "2x Volvo IPS 600", "hiz": "34 Knot" },
+          { "ad": "V50", "boy": "15.3 m", "en": "4.1 m", "motor": "2x Volvo IPS 650", "hiz": "34 Knot" },
+          { "ad": "V52", "boy": "16.1 m", "en": "4.5 m", "motor": "2x CAT C12", "hiz": "36 Knot" },
+          { "ad": "V55", "boy": "17.8 m", "en": "4.6 m", "motor": "2x Volvo D13", "hiz": "37 Knot" },
+          { "ad": "V58", "boy": "18.4 m", "en": "4.6 m", "motor": "2x Volvo D13", "hiz": "36 Knot" },
+          { "ad": "V65", "boy": "20.0 m", "en": "5.1 m", "motor": "2x MAN V12", "hiz": "38 Knot" }
+        ]
+      },
+      {
+        "seri_adi": "Flybridge (F / P)",
+        "modeller": [
+          { "ad": "42", "boy": "13.4 m", "en": "4.1 m", "motor": "2x CAT C7", "hiz": "31 Knot" },
+          { "ad": "45", "boy": "13.9 m", "en": "4.2 m", "motor": "2x Volvo TAMD", "hiz": "30 Knot" },
+          { "ad": "50", "boy": "15.4 m", "en": "4.5 m", "motor": "2x Volvo D11", "hiz": "32 Knot" },
+          { "ad": "54", "boy": "16.5 m", "en": "4.8 m", "motor": "2x Volvo D12", "hiz": "33 Knot" },
+          { "ad": "56", "boy": "17.4 m", "en": "4.8 m", "motor": "2x CAT C12", "hiz": "32 Knot" },
+          { "ad": "60", "boy": "18.6 m", "en": "4.8 m", "motor": "2x CAT C18", "hiz": "34 Knot" },
+          { "ad": "62", "boy": "19.3 m", "en": "5.0 m", "motor": "2x CAT C18", "hiz": "32 Knot" },
+          { "ad": "64", "boy": "19.7 m", "en": "5.0 m", "motor": "2x CAT C18", "hiz": "34 Knot" },
+          { "ad": "F45", "boy": "14.3 m", "en": "4.2 m", "motor": "2x Volvo IPS 650", "hiz": "31 Knot" },
+          { "ad": "F50", "boy": "15.5 m", "en": "4.3 m", "motor": "2x Volvo IPS 800", "hiz": "36 Knot" },
+          { "ad": "F55", "boy": "17.6 m", "en": "4.8 m", "motor": "2x Volvo D13", "hiz": "33 Knot" },
+          { "ad": "F65", "boy": "20.3 m", "en": "5.1 m", "motor": "2x MAN V8", "hiz": "34 Knot" }
+        ]
+      },
+      {
+        "seri_adi": "Y & S Serisi",
+        "modeller": [
+          { "ad": "S62", "boy": "19.2 m", "en": "4.8 m", "motor": "2x MAN V8", "hiz": "38 Knot" },
+          { "ad": "S66", "boy": "20.1 m", "en": "5.0 m", "motor": "2x MAN V12", "hiz": "38 Knot" },
+          { "ad": "Y72", "boy": "22.8 m", "en": "5.5 m", "motor": "2x MAN V12", "hiz": "34 Knot" },
+          { "ad": "Y85", "boy": "26.2 m", "en": "6.3 m", "motor": "2x MAN V12", "hiz": "33 Knot" }
+        ]
+      }
+    ]
+  },
+  {
+    "marka": "Sunseeker",
+    "ulke": "İngiltere",
+    "seriler": [
+      {
+        "seri_adi": "Predator",
+        "modeller": [
+          { "ad": "50", "boy": "16.4 m", "en": "4.4 m", "motor": "2x Volvo IPS 800", "hiz": "32 Knot" },
+          { "ad": "55", "boy": "17.7 m", "en": "4.9 m", "motor": "2x Volvo IPS 950", "hiz": "35 Knot" },
+          { "ad": "60", "boy": "19.3 m", "en": "4.9 m", "motor": "2x MAN V8", "hiz": "34 Knot" },
+          { "ad": "62", "boy": "19.6 m", "en": "5.0 m", "motor": "2x MAN V10", "hiz": "37 Knot" },
+          { "ad": "68", "boy": "21.7 m", "en": "5.1 m", "motor": "2x MAN V12", "hiz": "36 Knot" },
+          { "ad": "72", "boy": "22.2 m", "en": "5.4 m", "motor": "2x MAN V12", "hiz": "38 Knot" },
+          { "ad": "74", "boy": "22.8 m", "en": "5.3 m", "motor": "2x MAN V12", "hiz": "40 Knot" },
+          { "ad": "82", "boy": "25.0 m", "en": "6.0 m", "motor": "2x MTU 2000", "hiz": "33 Knot" }
+        ]
+      },
+      {
+        "seri_adi": "Manhattan",
+        "modeller": [
+          { "ad": "48", "boy": "14.8 m", "en": "4.4 m", "motor": "2x CAT 3126", "hiz": "30 Knot" },
+          { "ad": "50", "boy": "16.0 m", "en": "4.6 m", "motor": "2x CAT C12", "hiz": "32 Knot" },
+          { "ad": "52", "boy": "17.2 m", "en": "4.8 m", "motor": "2x Volvo IPS 950", "hiz": "31 Knot" },
+          { "ad": "55", "boy": "17.7 m", "en": "4.8 m", "motor": "2x Volvo D13", "hiz": "32 Knot" },
+          { "ad": "60", "boy": "19.6 m", "en": "5.0 m", "motor": "2x MAN V8", "hiz": "32 Knot" },
+          { "ad": "63", "boy": "21.0 m", "en": "5.1 m", "motor": "2x MAN V10", "hiz": "33 Knot" },
+          { "ad": "66", "boy": "20.8 m", "en": "5.2 m", "motor": "2x MAN V8", "hiz": "32 Knot" },
+          { "ad": "68", "boy": "21.2 m", "en": "5.2 m", "motor": "2x MAN V8", "hiz": "32 Knot" },
+          { "ad": "73", "boy": "22.6 m", "en": "5.7 m", "motor": "2x MAN V12", "hiz": "34 Knot" }
+        ]
+      },
+      {
+        "seri_adi": "Camargue & Portofino",
+        "modeller": [
+          { "ad": "Camargue 44", "boy": "14.1 m", "en": "4.2 m", "motor": "2x CAT 3126", "hiz": "33 Knot" },
+          { "ad": "Camargue 50", "boy": "16.1 m", "en": "4.4 m", "motor": "2x CAT C12", "hiz": "34 Knot" },
+          { "ad": "Portofino 35", "boy": "11.8 m", "en": "3.5 m", "motor": "2x Volvo D6", "hiz": "36 Knot" },
+          { "ad": "Portofino 47", "boy": "14.9 m", "en": "4.3 m", "motor": "2x Volvo IPS 600", "hiz": "34 Knot" }
+        ]
+      }
+    ]
+  },
+  {
+    "marka": "Azimut Yachts",
+    "ulke": "İtalya",
+    "seriler": [
+      {
+        "seri_adi": "Atlantis (Sport)",
+        "modeller": [
+          { "ad": "34", "boy": "10.2 m", "en": "3.5 m", "motor": "2x Volvo D3", "hiz": "31 Knot" },
+          { "ad": "43", "boy": "13.8 m", "en": "4.2 m", "motor": "2x Volvo D6", "hiz": "33 Knot" },
+          { "ad": "45", "boy": "14.6 m", "en": "4.2 m", "motor": "2x Volvo IPS 650", "hiz": "33 Knot" },
+          { "ad": "47", "boy": "14.5 m", "en": "4.3 m", "motor": "2x CAT C9", "hiz": "35 Knot" },
+          { "ad": "51", "boy": "16.1 m", "en": "4.5 m", "motor": "2x Volvo IPS 800", "hiz": "35 Knot" },
+          { "ad": "55", "boy": "16.7 m", "en": "4.6 m", "motor": "2x CAT C12", "hiz": "36 Knot" }
+        ]
+      },
+      {
+        "seri_adi": "Flybridge",
+        "modeller": [
+          { "ad": "39 Fly", "boy": "12.1 m", "en": "4.0 m", "motor": "2x CAT 3126", "hiz": "30 Knot" },
+          { "ad": "43 Fly", "boy": "12.9 m", "en": "4.2 m", "motor": "2x Cummins QSB", "hiz": "30 Knot" },
+          { "ad": "46", "boy": "14.8 m", "en": "4.4 m", "motor": "2x CAT C9", "hiz": "31 Knot" },
+          { "ad": "50", "boy": "16.1 m", "en": "4.7 m", "motor": "2x Volvo D11", "hiz": "32 Knot" },
+          { "ad": "53", "boy": "16.7 m", "en": "4.7 m", "motor": "2x MAN R6", "hiz": "32 Knot" },
+          { "ad": "55", "boy": "16.9 m", "en": "4.9 m", "motor": "2x MAN i6", "hiz": "31 Knot" },
+          { "ad": "58", "boy": "17.8 m", "en": "4.9 m", "motor": "2x MAN V8", "hiz": "32 Knot" },
+          { "ad": "62", "boy": "19.2 m", "en": "5.0 m", "motor": "2x CAT C18", "hiz": "33 Knot" },
+          { "ad": "64", "boy": "20.1 m", "en": "5.0 m", "motor": "2x CAT C18", "hiz": "34 Knot" },
+          { "ad": "66", "boy": "20.8 m", "en": "5.2 m", "motor": "2x CAT C18", "hiz": "33 Knot" },
+          { "ad": "72", "boy": "22.6 m", "en": "5.6 m", "motor": "2x MAN V12", "hiz": "32 Knot" },
+          { "ad": "80", "boy": "25.2 m", "en": "6.0 m", "motor": "2x MAN V12", "hiz": "31 Knot" }
+        ]
+      },
+      {
+        "seri_adi": "S Serisi (Coupe / Spor)",
+        "modeller": [
+          { "ad": "55S", "boy": "17.2 m", "en": "4.7 m", "motor": "3x Volvo IPS 600", "hiz": "36 Knot" },
+          { "ad": "68S", "boy": "21.6 m", "en": "5.5 m", "motor": "2x MTU 2000", "hiz": "38 Knot" },
+          { "ad": "77S", "boy": "24.0 m", "en": "5.8 m", "motor": "3x Volvo IPS 1200", "hiz": "36 Knot" },
+          { "ad": "S6", "boy": "18.0 m", "en": "4.7 m", "motor": "3x Volvo IPS 700", "hiz": "35 Knot" },
+          { "ad": "S7", "boy": "21.6 m", "en": "5.1 m", "motor": "3x Volvo IPS 1050", "hiz": "36 Knot" },
+          { "ad": "S8", "boy": "24.6 m", "en": "5.5 m", "motor": "3x Volvo IPS 1350", "hiz": "34 Knot" }
+        ]
+      },
+      {
+        "seri_adi": "Magellano (Trawler)",
+        "modeller": [
+          { "ad": "43", "boy": "13.6 m", "en": "4.4 m", "motor": "2x Cummins QSB", "hiz": "22 Knot" },
+          { "ad": "53", "boy": "16.8 m", "en": "4.7 m", "motor": "2x Cummins QSC", "hiz": "21 Knot" },
+          { "ad": "60", "boy": "18.4 m", "en": "5.1 m", "motor": "2x MAN i6", "hiz": "26 Knot" },
+          { "ad": "66", "boy": "20.1 m", "en": "5.4 m", "motor": "2x MAN D2676", "hiz": "24 Knot" }
+        ]
+      }
+    ]
+  },
+  {
+    "marka": "Ferretti Yachts",
+    "ulke": "İtalya",
+    "seriler": [
+      {
+        "seri_adi": "Flybridge",
+        "modeller": [
+          { "ad": "430", "boy": "13.3 m", "en": "4.3 m", "motor": "2x CAT 3126", "hiz": "30 Knot" },
+          { "ad": "450", "boy": "14.2 m", "en": "4.3 m", "motor": "2x Cummins QSB", "hiz": "31 Knot" },
+          { "ad": "500", "boy": "15.3 m", "en": "4.3 m", "motor": "2x Cummins QSB", "hiz": "30 Knot" },
+          { "ad": "530", "boy": "16.0 m", "en": "4.9 m", "motor": "2x CAT C12", "hiz": "32 Knot" },
+          { "ad": "550", "boy": "17.4 m", "en": "4.8 m", "motor": "2x MAN i6", "hiz": "30 Knot" },
+          { "ad": "592", "boy": "18.3 m", "en": "5.2 m", "motor": "2x MAN V8", "hiz": "33 Knot" },
+          { "ad": "620", "boy": "19.9 m", "en": "5.2 m", "motor": "2x MAN V8", "hiz": "33 Knot" },
+          { "ad": "670", "boy": "20.2 m", "en": "5.3 m", "motor": "2x MAN V8", "hiz": "32 Knot" },
+          { "ad": "720", "boy": "22.3 m", "en": "5.7 m", "motor": "2x MAN V12", "hiz": "32 Knot" },
+          { "ad": "780", "boy": "24.0 m", "en": "5.8 m", "motor": "2x MAN V12", "hiz": "31 Knot" },
+          { "ad": "850", "boy": "26.0 m", "en": "6.2 m", "motor": "2x MAN V12", "hiz": "31 Knot" }
+        ]
+      }
+    ]
+  },
+  {
+    "marka": "Riva",
+    "ulke": "İtalya",
+    "seriler": [
+      {
+        "seri_adi": "Klasik & Modern",
+        "modeller": [
+          { "ad": "Aquariva Super", "boy": "10.0 m", "en": "2.8 m", "motor": "2x Yanmar 370 HP", "hiz": "41 Knot" },
+          { "ad": "Rivamare", "boy": "11.8 m", "en": "3.5 m", "motor": "2x Volvo D6 400", "hiz": "40 Knot" },
+          { "ad": "Dolceriva", "boy": "14.9 m", "en": "4.2 m", "motor": "2x Volvo D13 1000", "hiz": "40 Knot" },
+          { "ad": "56' Rivale", "boy": "17.2 m", "en": "4.7 m", "motor": "2x MAN V8 1200", "hiz": "38 Knot" },
+          { "ad": "66' Ribelle", "boy": "20.6 m", "en": "5.2 m", "motor": "2x MAN V12 1550", "hiz": "37 Knot" },
+          { "ad": "76' Perseo", "boy": "23.2 m", "en": "5.7 m", "motor": "2x MAN V12 1800", "hiz": "37 Knot" }
+        ]
+      }
+    ]
+  },
+  {
+    "marka": "Pershing",
+    "ulke": "İtalya",
+    "seriler": [
+      {
+        "seri_adi": "Sportif Performans",
+        "modeller": [
+          { "ad": "43", "boy": "13.6 m", "en": "4.1 m", "motor": "2x CAT 3126", "hiz": "35 Knot" },
+          { "ad": "46", "boy": "14.7 m", "en": "4.1 m", "motor": "2x MAN R6", "hiz": "38 Knot" },
+          { "ad": "50", "boy": "15.8 m", "en": "4.3 m", "motor": "2x MAN R6 800", "hiz": "44 Knot" },
+          { "ad": "52", "boy": "16.1 m", "en": "4.7 m", "motor": "2x MAN V8", "hiz": "45 Knot" },
+          { "ad": "54", "boy": "17.1 m", "en": "4.7 m", "motor": "2x MAN V10", "hiz": "50 Knot" },
+          { "ad": "5X", "boy": "16.5 m", "en": "4.3 m", "motor": "2x Volvo IPS 950", "hiz": "36 Knot" },
+          { "ad": "6X", "boy": "18.9 m", "en": "4.8 m", "motor": "2x MAN V10 1550", "hiz": "48 Knot" },
+          { "ad": "72", "boy": "22.2 m", "en": "5.5 m", "motor": "2x MTU 2000", "hiz": "45 Knot" },
+          { "ad": "8X", "boy": "25.5 m", "en": "5.8 m", "motor": "2x MTU 16V 2000", "hiz": "48 Knot" },
+          { "ad": "9X", "boy": "28.1 m", "en": "6.2 m", "motor": "2x MTU 16V 2000", "hiz": "42 Knot" }
+        ]
+      }
+    ]
+  },
+  {
+    "marka": "Cranchi",
+    "ulke": "İtalya",
+    "seriler": [
+      {
+        "seri_adi": "Cruiser & Hardtop",
+        "modeller": [
+          { "ad": "E26", "boy": "7.8 m", "en": "2.5 m", "motor": "Volvo V8 350", "hiz": "38 Knot" },
+          { "ad": "CSL 27", "boy": "8.5 m", "en": "2.8 m", "motor": "2x Volvo Penta", "hiz": "36 Knot" },
+          { "ad": "Z35", "boy": "11.7 m", "en": "3.5 m", "motor": "2x Volvo D4", "hiz": "34 Knot" },
+          { "ad": "Endurance 30", "boy": "9.8 m", "en": "2.9 m", "motor": "Volvo D4 300", "hiz": "35 Knot" },
+          { "ad": "M44 HT", "boy": "13.8 m", "en": "4.0 m", "motor": "2x Volvo D6", "hiz": "33 Knot" },
+          { "ad": "50 Mediterranee", "boy": "15.3 m", "en": "4.3 m", "motor": "2x Volvo D12", "hiz": "35 Knot" },
+          { "ad": "Settantotto 78", "boy": "25.1 m", "en": "5.7 m", "motor": "3x Volvo IPS 1350", "hiz": "33 Knot" }
+        ]
+      }
+    ]
+  },
+  {
+    "marka": "Absolute Yachts",
+    "ulke": "İtalya",
+    "seriler": [
+      {
+        "seri_adi": "Navetta & Fly",
+        "modeller": [
+          { "ad": "45 Navetta", "boy": "13.9 m", "en": "4.1 m", "motor": "2x Volvo IPS 600", "hiz": "26 Knot" },
+          { "ad": "52 Navetta", "boy": "15.9 m", "en": "4.6 m", "motor": "2x Volvo IPS 650", "hiz": "25 Knot" },
+          { "ad": "58 Navetta", "boy": "17.4 m", "en": "5.0 m", "motor": "2x Volvo IPS 700", "hiz": "27 Knot" },
+          { "ad": "47 Fly", "boy": "14.6 m", "en": "4.5 m", "motor": "2x Volvo IPS 650", "hiz": "28 Knot" },
+          { "ad": "52 Fly", "boy": "15.8 m", "en": "4.6 m", "motor": "2x Volvo IPS 800", "hiz": "30 Knot" },
+          { "ad": "60 Fly", "boy": "18.6 m", "en": "4.9 m", "motor": "2x Volvo IPS 950", "hiz": "32 Knot" }
+        ]
+      }
+    ]
+  },
+  {
+    "marka": "Sanlorenzo",
+    "ulke": "İtalya",
+    "seriler": [
+      {
+        "seri_adi": "SL / SD Serileri",
+        "modeller": [
+          { "ad": "SL78", "boy": "24.6 m", "en": "5.7 m", "motor": "2x MTU 10V 2000", "hiz": "30 Knot" },
+          { "ad": "SL86", "boy": "26.7 m", "en": "6.3 m", "motor": "2x MTU 12V 2000", "hiz": "32 Knot" },
+          { "ad": "SL96", "boy": "29.1 m", "en": "6.7 m", "motor": "2x MTU 16V 2000", "hiz": "29 Knot" },
+          { "ad": "SD96", "boy": "28.9 m", "en": "7.6 m", "motor": "2x CAT C18", "hiz": "19 Knot" },
+          { "ad": "SD118", "boy": "35.7 m", "en": "7.9 m", "motor": "2x CAT ACERT", "hiz": "19 Knot" },
+          { "ad": "SX76", "boy": "23.7 m", "en": "6.6 m", "motor": "2x Volvo IPS 1050", "hiz": "22 Knot" },
+          { "ad": "SX88", "boy": "26.7 m", "en": "7.2 m", "motor": "3x Volvo IPS 1050", "hiz": "23 Knot" }
+        ]
+      }
+    ]
+  },
+  {
+    "marka": "Sessa Marine",
+    "ulke": "İtalya",
+    "seriler": [
+      {
+        "seri_adi": "Oyster, Key Largo, C Serisi",
+        "modeller": [
+          { "ad": "C35", "boy": "10.6 m", "en": "3.5 m", "motor": "2x Volvo D4", "hiz": "34 Knot" },
+          { "ad": "C38", "boy": "11.8 m", "en": "3.7 m", "motor": "2x Volvo D4", "hiz": "34 Knot" },
+          { "ad": "C42", "boy": "13.1 m", "en": "4.0 m", "motor": "2x Volvo IPS 500", "hiz": "33 Knot" },
+          { "ad": "C48", "boy": "15.7 m", "en": "4.2 m", "motor": "2x Volvo IPS 600", "hiz": "35 Knot" },
+          { "ad": "Key Largo 27", "boy": "8.5 m", "en": "2.6 m", "motor": "Yamaha 300 HP", "hiz": "38 Knot" },
+          { "ad": "Oyster 35", "boy": "10.7 m", "en": "3.5 m", "motor": "2x Volvo KAD", "hiz": "32 Knot" }
+        ]
+      }
+    ]
+  },
+  {
+    "marka": "Apreamare",
+    "ulke": "İtalya",
+    "seriler": [
+      {
+        "seri_adi": "Gozzo Tarzı",
+        "modeller": [
+          { "ad": "Gozzo 35", "boy": "11.2 m", "en": "3.7 m", "motor": "2x Volvo D4", "hiz": "31 Knot" },
+          { "ad": "Gozzo 45", "boy": "14.5 m", "en": "4.3 m", "motor": "2x Cummins QSB", "hiz": "33 Knot" },
+          { "ad": "Maestro 56", "boy": "17.4 m", "en": "5.2 m", "motor": "2x Volvo D11", "hiz": "29 Knot" },
+          { "ad": "Maestro 65", "boy": "20.1 m", "en": "5.5 m", "motor": "2x MAN V8", "hiz": "30 Knot" }
+        ]
+      }
+    ]
+  },
+  {
+    "marka": "Itama",
+    "ulke": "İtalya",
+    "seriler": [
+      {
+        "seri_adi": "Open Safkan",
+        "modeller": [
+          { "ad": "Itama 45S", "boy": "13.8 m", "en": "3.9 m", "motor": "2x Cummins QSB 550", "hiz": "34 Knot" },
+          { "ad": "Itama 62RS", "boy": "19.0 m", "en": "4.8 m", "motor": "2x MAN V12 1400", "hiz": "40 Knot" },
+          { "ad": "Itama 75", "boy": "23.5 m", "en": "5.9 m", "motor": "2x MTU 1823 HP", "hiz": "42 Knot" }
+        ]
+      }
+    ]
+  },
+  {
+    "marka": "Sea Ray",
+    "ulke": "ABD",
+    "seriler": [
+      {
+        "seri_adi": "Sundancer (Cruiser)",
+        "modeller": [
+          { "ad": "240", "boy": "7.9 m", "en": "2.5 m", "motor": "MerCruiser 5.0L", "hiz": "34 Knot" },
+          { "ad": "260", "boy": "8.1 m", "en": "2.6 m", "motor": "MerCruiser 350 MAG", "hiz": "35 Knot" },
+          { "ad": "280", "boy": "8.8 m", "en": "2.9 m", "motor": "2x MerCruiser 4.3L", "hiz": "36 Knot" },
+          { "ad": "310", "boy": "9.5 m", "en": "3.1 m", "motor": "2x MerCruiser 350", "hiz": "35 Knot" },
+          { "ad": "320", "boy": "9.9 m", "en": "3.2 m", "motor": "2x MerCruiser 4.5L", "hiz": "36 Knot" },
+          { "ad": "350", "boy": "11.4 m", "en": "3.7 m", "motor": "2x MerCruiser 8.2L", "hiz": "34 Knot" },
+          { "ad": "370", "boy": "11.9 m", "en": "3.7 m", "motor": "2x Cummins QSD", "hiz": "33 Knot" },
+          { "ad": "400", "boy": "12.2 m", "en": "4.0 m", "motor": "2x Cummins QSB", "hiz": "33 Knot" },
+          { "ad": "450", "boy": "14.2 m", "en": "4.3 m", "motor": "2x Cummins QSC", "hiz": "32 Knot" },
+          { "ad": "510", "boy": "15.5 m", "en": "4.5 m", "motor": "2x Cummins QSC 550", "hiz": "32 Knot" }
+        ]
+      },
+      {
+        "seri_adi": "SLX / SDX (Dayboat)",
+        "modeller": [
+          { "ad": "SLX 260", "boy": "7.8 m", "en": "2.6 m", "motor": "MerCruiser 6.2L 350", "hiz": "42 Knot" },
+          { "ad": "SLX 310", "boy": "9.6 m", "en": "3.1 m", "motor": "2x MerCruiser 4.5L", "hiz": "44 Knot" },
+          { "ad": "SLX 400", "boy": "12.0 m", "en": "3.7 m", "motor": "2x MerCruiser 8.2L", "hiz": "45 Knot" }
+        ]
+      }
+    ]
+  },
+  {
+    "marka": "Bayliner",
+    "ulke": "ABD",
+    "seriler": [
+      {
+        "seri_adi": "Ciera / Discovery",
+        "modeller": [
+          { "ad": "245", "boy": "7.3 m", "en": "2.6 m", "motor": "MerCruiser 5.0L", "hiz": "32 Knot" },
+          { "ad": "265", "boy": "8.2 m", "en": "2.6 m", "motor": "MerCruiser 350 MAG", "hiz": "33 Knot" },
+          { "ad": "2855", "boy": "9.2 m", "en": "2.9 m", "motor": "MerCruiser 7.4L", "hiz": "34 Knot" },
+          { "ad": "3055", "boy": "9.6 m", "en": "3.3 m", "motor": "2x MerCruiser 5.0L", "hiz": "33 Knot" },
+          { "ad": "3255", "boy": "10.7 m", "en": "3.5 m", "motor": "2x MerCruiser 5.7L", "hiz": "32 Knot" }
+        ]
+      }
+    ]
+  },
+  {
+    "marka": "Chaparral",
+    "ulke": "ABD",
+    "seriler": [
+      {
+        "seri_adi": "Signature",
+        "modeller": [
+          { "ad": "250", "boy": "7.9 m", "en": "2.6 m", "motor": "Volvo 5.7L", "hiz": "34 Knot" },
+          { "ad": "270", "boy": "8.8 m", "en": "2.7 m", "motor": "Volvo 350 MAG", "hiz": "35 Knot" },
+          { "ad": "280", "boy": "8.8 m", "en": "2.9 m", "motor": "2x Volvo 4.3L", "hiz": "37 Knot" },
+          { "ad": "290", "boy": "9.2 m", "en": "3.0 m", "motor": "2x Volvo 5.0L", "hiz": "36 Knot" },
+          { "ad": "310", "boy": "9.4 m", "en": "3.0 m", "motor": "2x MerCruiser 350", "hiz": "36 Knot" },
+          { "ad": "330", "boy": "10.2 m", "en": "3.2 m", "motor": "2x Volvo 5.7L", "hiz": "35 Knot" },
+          { "ad": "350", "boy": "10.7 m", "en": "3.6 m", "motor": "2x Volvo 8.1L", "hiz": "38 Knot" }
+        ]
+      }
+    ]
+  },
+  {
+    "marka": "Regal",
+    "ulke": "ABD",
+    "seriler": [
+      {
+        "seri_adi": "Commodore / Express",
+        "modeller": [
+          { "ad": "2660", "boy": "8.7 m", "en": "2.8 m", "motor": "2x Volvo 4.3L", "hiz": "36 Knot" },
+          { "ad": "2860", "boy": "9.1 m", "en": "2.9 m", "motor": "2x Volvo 4.3L", "hiz": "38 Knot" },
+          { "ad": "3260", "boy": "10.6 m", "en": "3.4 m", "motor": "2x MerCruiser 350", "hiz": "35 Knot" },
+          { "ad": "35 Sport Coupe", "boy": "11.2 m", "en": "3.5 m", "motor": "2x Volvo V8 300", "hiz": "37 Knot" },
+          { "ad": "42 Fly", "boy": "12.8 m", "en": "3.9 m", "motor": "2x Volvo IPS 600", "hiz": "33 Knot" }
+        ]
+      }
+    ]
+  },
+  {
+    "marka": "Four Winns",
+    "ulke": "ABD",
+    "seriler": [
+      {
+        "seri_adi": "Vista Serisi",
+        "modeller": [
+          { "ad": "V255", "boy": "7.7 m", "en": "2.5 m", "motor": "Volvo V6 280", "hiz": "33 Knot" },
+          { "ad": "V275", "boy": "8.5 m", "en": "2.8 m", "motor": "Volvo 350 MAG", "hiz": "34 Knot" },
+          { "ad": "V288", "boy": "9.1 m", "en": "2.9 m", "motor": "2x Volvo 4.3L", "hiz": "36 Knot" },
+          { "ad": "V318", "boy": "9.8 m", "en": "3.3 m", "motor": "2x Volvo 5.0L", "hiz": "35 Knot" },
+          { "ad": "V358", "boy": "11.3 m", "en": "3.6 m", "motor": "2x Volvo 5.7L", "hiz": "35 Knot" },
+          { "ad": "V375", "boy": "11.3 m", "en": "3.6 m", "motor": "2x Volvo IPS 500", "hiz": "34 Knot" }
+        ]
+      }
+    ]
+  },
+  {
+    "marka": "Monterey",
+    "ulke": "ABD",
+    "seriler": [
+      {
+        "seri_adi": "Sport Yacht / Cruiser",
+        "modeller": [
+          { "ad": "270 CR", "boy": "8.8 m", "en": "2.6 m", "motor": "MerCruiser 350 MAG", "hiz": "35 Knot" },
+          { "ad": "290 CR", "boy": "8.8 m", "en": "3.1 m", "motor": "2x Volvo 4.3L", "hiz": "36 Knot" },
+          { "ad": "320 CR", "boy": "10.2 m", "en": "3.2 m", "motor": "2x Volvo 5.7L", "hiz": "37 Knot" },
+          { "ad": "335 SY", "boy": "10.3 m", "en": "3.2 m", "motor": "2x MerCruiser 350", "hiz": "36 Knot" },
+          { "ad": "355 SY", "boy": "11.3 m", "en": "3.4 m", "motor": "2x Volvo IPS 450", "hiz": "35 Knot" }
+        ]
+      }
+    ]
+  },
+  {
+    "marka": "Chris-Craft",
+    "ulke": "ABD",
+    "seriler": [
+      {
+        "seri_adi": "Corsair & Launch",
+        "modeller": [
+          { "ad": "Corsair 28", "boy": "8.5 m", "en": "3.0 m", "motor": "2x MerCruiser 350", "hiz": "42 Knot" },
+          { "ad": "Launch 32", "boy": "10.4 m", "en": "3.1 m", "motor": "2x Volvo V8 380", "hiz": "45 Knot" },
+          { "ad": "Launch 36", "boy": "11.6 m", "en": "3.8 m", "motor": "2x Volvo V8 430", "hiz": "44 Knot" },
+          { "ad": "Catalina 30", "boy": "9.3 m", "en": "3.1 m", "motor": "2x Yamaha 300", "hiz": "46 Knot" }
+        ]
+      }
+    ]
+  },
+  {
+    "marka": "Boston Whaler",
+    "ulke": "ABD",
+    "seriler": [
+      {
+        "seri_adi": "Conquest & Outrage",
+        "modeller": [
+          { "ad": "285 Conquest", "boy": "8.5 m", "en": "2.9 m", "motor": "2x Mercury 250", "hiz": "40 Knot" },
+          { "ad": "325 Conquest", "boy": "9.8 m", "en": "3.2 m", "motor": "2x Mercury 300", "hiz": "42 Knot" },
+          { "ad": "345 Conquest", "boy": "10.9 m", "en": "3.6 m", "motor": "3x Mercury 300", "hiz": "44 Knot" },
+          { "ad": "420 Outrage", "boy": "13.0 m", "en": "4.0 m", "motor": "4x Mercury 400", "hiz": "52 Knot" }
+        ]
+      }
+    ]
+  },
+  {
+    "marka": "Tiara Yachts",
+    "ulke": "ABD",
+    "seriler": [
+      {
+        "seri_adi": "Open & Coupe",
+        "modeller": [
+          { "ad": "3100 Open", "boy": "9.6 m", "en": "3.6 m", "motor": "2x Crusader 454", "hiz": "32 Knot" },
+          { "ad": "3600 Open", "boy": "11.7 m", "en": "4.0 m", "motor": "2x Cummins QSB", "hiz": "33 Knot" },
+          { "ad": "39 Coupe", "boy": "12.4 m", "en": "4.0 m", "motor": "2x Volvo IPS 500", "hiz": "34 Knot" },
+          { "ad": "44 Coupe", "boy": "13.9 m", "en": "4.5 m", "motor": "2x Volvo IPS 600", "hiz": "32 Knot" }
+        ]
+      }
+    ]
+  },
+  {
+    "marka": "Sealine",
+    "ulke": "İngiltere",
+    "seriler": [
+      {
+        "seri_adi": "F, S ve C Serisi",
+        "modeller": [
+          { "ad": "S330", "boy": "10.3 m", "en": "3.5 m", "motor": "2x Volvo D3 220", "hiz": "32 Knot" },
+          { "ad": "C330", "boy": "10.3 m", "en": "3.5 m", "motor": "2x Volvo D3 220", "hiz": "31 Knot" },
+          { "ad": "C390", "boy": "12.5 m", "en": "3.8 m", "motor": "2x Volvo D4 300", "hiz": "34 Knot" },
+          { "ad": "S430", "boy": "13.5 m", "en": "4.2 m", "motor": "2x Volvo IPS 500", "hiz": "33 Knot" },
+          { "ad": "F430", "boy": "13.5 m", "en": "4.2 m", "motor": "2x Volvo IPS 600", "hiz": "32 Knot" },
+          { "ad": "F530", "boy": "16.1 m", "en": "4.6 m", "motor": "2x Volvo IPS 800", "hiz": "32 Knot" }
+        ]
+      }
+    ]
+  },
+  {
+    "marka": "Jeanneau",
+    "ulke": "Fransa",
+    "seriler": [
+      {
+        "seri_adi": "Leader Serisi",
+        "modeller": [
+          { "ad": "Leader 8", "boy": "8.9 m", "en": "2.9 m", "motor": "Volvo 350 MAG", "hiz": "32 Knot" },
+          { "ad": "Leader 30", "boy": "9.2 m", "en": "2.9 m", "motor": "Volvo D4 300", "hiz": "33 Knot" },
+          { "ad": "Leader 33", "boy": "10.5 m", "en": "3.3 m", "motor": "2x Volvo D3 220", "hiz": "32 Knot" },
+          { "ad": "Leader 36", "boy": "11.6 m", "en": "3.6 m", "motor": "2x Volvo D4 300", "hiz": "34 Knot" },
+          { "ad": "Leader 40", "boy": "12.3 m", "en": "3.8 m", "motor": "2x Volvo D6 370", "hiz": "35 Knot" },
+          { "ad": "Leader 46", "boy": "14.3 m", "en": "4.1 m", "motor": "2x Volvo IPS 600", "hiz": "32 Knot" }
+        ]
+      },
+      {
+        "seri_adi": "Merry Fisher",
+        "modeller": [
+          { "ad": "795", "boy": "7.4 m", "en": "2.8 m", "motor": "Yamaha 200 HP", "hiz": "31 Knot" },
+          { "ad": "895", "boy": "8.9 m", "en": "2.9 m", "motor": "2x Yamaha 175 HP", "hiz": "34 Knot" },
+          { "ad": "1095", "boy": "10.5 m", "en": "3.3 m", "motor": "2x Yamaha 300 HP", "hiz": "36 Knot" },
+          { "ad": "1295 Fly", "boy": "12.5 m", "en": "3.8 m", "motor": "3x Yamaha 300 HP", "hiz": "38 Knot" }
+        ]
+      },
+      {
+        "seri_adi": "Cap Camarat & NC",
+        "modeller": [
+          { "ad": "NC 9", "boy": "9.1 m", "en": "3.1 m", "motor": "Volvo D4 260", "hiz": "28 Knot" },
+          { "ad": "NC 11", "boy": "11.1 m", "en": "3.7 m", "motor": "2x Volvo D3 200", "hiz": "31 Knot" },
+          { "ad": "NC 14", "boy": "13.9 m", "en": "4.1 m", "motor": "2x Volvo IPS 500", "hiz": "31 Knot" },
+          { "ad": "Cap Camarat 10.5 WA", "boy": "10.9 m", "en": "3.2 m", "motor": "2x Yamaha 350", "hiz": "45 Knot" }
+        ]
+      }
+    ]
+  },
+  {
+    "marka": "Bénéteau",
+    "ulke": "Fransa",
+    "seriler": [
+      {
+        "seri_adi": "Gran Turismo (GT)",
+        "modeller": [
+          { "ad": "GT 32", "boy": "9.9 m", "en": "3.3 m", "motor": "2x MerCruiser 4.5L", "hiz": "34 Knot" },
+          { "ad": "GT 36", "boy": "11.5 m", "en": "3.5 m", "motor": "2x Volvo D4 300", "hiz": "35 Knot" },
+          { "ad": "GT 40", "boy": "12.6 m", "en": "3.8 m", "motor": "2x Volvo D6 370", "hiz": "36 Knot" },
+          { "ad": "GT 41", "boy": "12.6 m", "en": "3.8 m", "motor": "2x Volvo D6 380", "hiz": "36 Knot" },
+          { "ad": "GT 46", "boy": "14.7 m", "en": "4.2 m", "motor": "2x Volvo IPS 600", "hiz": "34 Knot" },
+          { "ad": "GT 50", "boy": "15.7 m", "en": "4.3 m", "motor": "2x Volvo IPS 600", "hiz": "30 Knot" }
+        ]
+      },
+      {
+        "seri_adi": "Swift Trawler",
+        "modeller": [
+          { "ad": "30", "boy": "9.9 m", "en": "3.5 m", "motor": "Volvo D6 370", "hiz": "23 Knot" },
+          { "ad": "34", "boy": "10.9 m", "en": "3.9 m", "motor": "Cummins QSB 425", "hiz": "21 Knot" },
+          { "ad": "35", "boy": "11.2 m", "en": "3.9 m", "motor": "Cummins 425 HP", "hiz": "20 Knot" },
+          { "ad": "41", "boy": "13.4 m", "en": "4.2 m", "motor": "2x Yanmar 270", "hiz": "23 Knot" },
+          { "ad": "44", "boy": "13.8 m", "en": "4.2 m", "motor": "2x Volvo D4 300", "hiz": "24 Knot" },
+          { "ad": "47", "boy": "14.7 m", "en": "4.4 m", "motor": "2x Cummins QSB 425", "hiz": "25 Knot" },
+          { "ad": "50", "boy": "14.9 m", "en": "4.6 m", "motor": "2x Volvo IPS 600", "hiz": "24 Knot" }
+        ]
+      },
+      {
+        "seri_adi": "Antares",
+        "modeller": [
+          { "ad": "Antares 8", "boy": "8.2 m", "en": "2.8 m", "motor": "Suzuki 250 HP", "hiz": "30 Knot" },
+          { "ad": "Antares 9", "boy": "9.1 m", "en": "2.9 m", "motor": "2x Suzuki 200 HP", "hiz": "34 Knot" },
+          { "ad": "Antares 11", "boy": "11.0 m", "en": "3.5 m", "motor": "2x Yamaha 300 HP", "hiz": "37 Knot" },
+          { "ad": "Antares 12", "boy": "12.9 m", "en": "3.8 m", "motor": "3x Mercury 300 HP", "hiz": "38 Knot" }
+        ]
+      }
+    ]
+  },
+  {
+    "marka": "Prestige Yachts",
+    "ulke": "Fransa",
+    "seriler": [
+      {
+        "seri_adi": "Flybridge & M Serisi",
+        "modeller": [
+          { "ad": "32 Fly", "boy": "9.9 m", "en": "3.6 m", "motor": "2x Volvo KAMD", "hiz": "28 Knot" },
+          { "ad": "36 Fly", "boy": "11.1 m", "en": "3.8 m", "motor": "2x Volvo D4", "hiz": "29 Knot" },
+          { "ad": "420", "boy": "13.0 m", "en": "4.1 m", "motor": "2x Cummins QSB", "hiz": "30 Knot" },
+          { "ad": "460", "boy": "14.3 m", "en": "4.3 m", "motor": "2x Volvo IPS 600", "hiz": "31 Knot" },
+          { "ad": "500", "boy": "15.2 m", "en": "4.5 m", "motor": "2x Volvo IPS 600", "hiz": "30 Knot" },
+          { "ad": "520", "boy": "16.1 m", "en": "4.5 m", "motor": "2x Volvo IPS 650", "hiz": "29 Knot" },
+          { "ad": "590", "boy": "18.7 m", "en": "4.8 m", "motor": "2x Cummins QSC", "hiz": "31 Knot" },
+          { "ad": "630", "boy": "19.0 m", "en": "5.1 m", "motor": "2x Volvo IPS 950", "hiz": "28 Knot" },
+          { "ad": "M48", "boy": "14.8 m", "en": "6.0 m", "motor": "2x Volvo D4 320", "hiz": "20 Knot" }
+        ]
+      }
+    ]
+  },
+  {
+    "marka": "Galeon",
+    "ulke": "Polonya",
+    "seriler": [
+      {
+        "seri_adi": "Fly & HTS Serisi",
+        "modeller": [
+          { "ad": "325 GTO", "boy": "9.9 m", "en": "3.3 m", "motor": "2x Mercury 350", "hiz": "42 Knot" },
+          { "ad": "380 FLY", "boy": "11.9 m", "en": "3.7 m", "motor": "2x Volvo D4 300", "hiz": "30 Knot" },
+          { "ad": "400 FLY", "boy": "12.5 m", "en": "4.0 m", "motor": "2x Volvo IPS 600", "hiz": "32 Knot" },
+          { "ad": "420 FLY", "boy": "13.2 m", "en": "4.1 m", "motor": "2x Volvo D6 435", "hiz": "31 Knot" },
+          { "ad": "425 HTS", "boy": "13.4 m", "en": "3.9 m", "motor": "2x Volvo IPS 500", "hiz": "33 Knot" },
+          { "ad": "460 FLY", "boy": "14.3 m", "en": "4.3 m", "motor": "2x Volvo IPS 600", "hiz": "31 Knot" },
+          { "ad": "500 FLY", "boy": "16.2 m", "en": "4.4 m", "motor": "2x Volvo D11", "hiz": "32 Knot" },
+          { "ad": "640 FLY", "boy": "20.8 m", "en": "5.0 m", "motor": "2x MAN V8 1200", "hiz": "33 Knot" }
+        ]
+      }
+    ]
+  },
+  {
+    "marka": "Bavaria Yachts",
+    "ulke": "Almanya",
+    "seriler": [
+      {
+        "seri_adi": "Sport & SR Serisi",
+        "modeller": [
+          { "ad": "29 Sport", "boy": "8.9 m", "en": "2.9 m", "motor": "MerCruiser 350 MAG", "hiz": "33 Knot" },
+          { "ad": "32 Sport", "boy": "10.0 m", "en": "3.3 m", "motor": "2x Volvo 4.3L", "hiz": "35 Knot" },
+          { "ad": "35 Sport", "boy": "10.8 m", "en": "3.6 m", "motor": "2x Volvo D4 260", "hiz": "34 Knot" },
+          { "ad": "37 Sport", "boy": "11.8 m", "en": "3.9 m", "motor": "2x Volvo D4 300", "hiz": "35 Knot" },
+          { "ad": "SR36", "boy": "11.6 m", "en": "3.8 m", "motor": "2x Volvo D4 300", "hiz": "34 Knot" },
+          { "ad": "SR41", "boy": "13.2 m", "en": "3.9 m", "motor": "2x Volvo D6 380", "hiz": "35 Knot" },
+          { "ad": "Virtess 420", "boy": "13.6 m", "en": "4.2 m", "motor": "2x Volvo IPS 600", "hiz": "32 Knot" }
+        ]
+      }
+    ]
+  },
+  {
+    "marka": "Nimbus",
+    "ulke": "İsveç",
+    "seriler": [
+      {
+        "seri_adi": "Weekender, Tender, Coupé",
+        "modeller": [
+          { "ad": "Weekender W9", "boy": "9.3 m", "en": "2.9 m", "motor": "Mercury 300 HP", "hiz": "40 Knot" },
+          { "ad": "Tender T11", "boy": "12.4 m", "en": "3.4 m", "motor": "2x Mercury 300", "hiz": "42 Knot" },
+          { "ad": "Commuter C9", "boy": "9.3 m", "en": "2.9 m", "motor": "Mercury 350 HP", "hiz": "42 Knot" },
+          { "ad": "365 Coupé", "boy": "11.5 m", "en": "3.5 m", "motor": "Volvo D4 300", "hiz": "28 Knot" },
+          { "ad": "405 Coupé", "boy": "13.3 m", "en": "3.8 m", "motor": "2x Volvo D4 300", "hiz": "30 Knot" }
+        ]
+      }
+    ]
+  },
+  {
+    "marka": "Axopar",
+    "ulke": "Finlandiya",
+    "seriler": [
+      {
+        "seri_adi": "Adventure & Cross Cabin",
+        "modeller": [
+          { "ad": "Axopar 28 (T-Top/Cabin)", "boy": "8.7 m", "en": "2.9 m", "motor": "Mercury 300 HP", "hiz": "45 Knot" },
+          { "ad": "Axopar 37 (Sun-Top/XC)", "boy": "11.5 m", "en": "3.3 m", "motor": "2x Mercury 300", "hiz": "48 Knot" },
+          { "ad": "Axopar 45", "boy": "13.9 m", "en": "4.1 m", "motor": "3x Mercury 300", "hiz": "50 Knot" }
+        ]
+      }
+    ]
+  },
+  {
+    "marka": "Sirena Yachts",
+    "ulke": "Türkiye",
+    "seriler": [
+      {
+        "seri_adi": "Motor Yacht Serisi",
+        "modeller": [
+          { "ad": "Sirena 48", "boy": "15.9 m", "en": "4.9 m", "motor": "2x Cummins QSB 550", "hiz": "27 Knot" },
+          { "ad": "Sirena 58", "boy": "18.5 m", "en": "5.3 m", "motor": "2x CAT C8.7", "hiz": "29 Knot" },
+          { "ad": "Sirena 68", "boy": "21.4 m", "en": "5.8 m", "motor": "2x Volvo D13 1000", "hiz": "28 Knot" },
+          { "ad": "Sirena 78", "boy": "25.0 m", "en": "6.5 m", "motor": "2x MAN V12 1400", "hiz": "26 Knot" },
+          { "ad": "Sirena 88", "boy": "26.8 m", "en": "7.1 m", "motor": "2x MAN V12 1550", "hiz": "25 Knot" }
+        ]
+      }
+    ]
+  },
+  {
+    "marka": "Numarine",
+    "ulke": "Türkiye",
+    "seriler": [
+      {
+        "seri_adi": "Flybridge & Explorer (XP)",
+        "modeller": [
+          { "ad": "52 Fly", "boy": "15.8 m", "en": "4.7 m", "motor": "2x Volvo IPS 600", "hiz": "30 Knot" },
+          { "ad": "55 HT", "boy": "17.0 m", "en": "4.7 m", "motor": "2x MAN 800 HP", "hiz": "34 Knot" },
+          { "ad": "62 Fly", "boy": "19.1 m", "en": "5.1 m", "motor": "2x Volvo IPS 950", "hiz": "32 Knot" },
+          { "ad": "68 Fly", "boy": "20.7 m", "en": "5.3 m", "motor": "2x CAT C18", "hiz": "32 Knot" },
+          { "ad": "78 HT/Fly", "boy": "23.9 m", "en": "5.8 m", "motor": "2x MAN V12", "hiz": "36 Knot" },
+          { "ad": "22XP", "boy": "22.6 m", "en": "6.6 m", "motor": "2x Cummins 425", "hiz": "13 Knot" },
+          { "ad": "26XP", "boy": "25.6 m", "en": "6.6 m", "motor": "2x MAN 560", "hiz": "16 Knot" },
+          { "ad": "32XP", "boy": "32.5 m", "en": "8.0 m", "motor": "2x CAT C18", "hiz": "14 Knot" }
+        ]
+      }
+    ]
+  },
+  {
+    "marka": "Vicem Yachts",
+    "ulke": "Türkiye",
+    "seriler": [
+      {
+        "seri_adi": "Classic & Cruiser",
+        "modeller": [
+          { "ad": "50 Classic", "boy": "15.5 m", "en": "4.4 m", "motor": "2x Volvo IPS 600", "hiz": "28 Knot" },
+          { "ad": "58 Classic", "boy": "17.9 m", "en": "5.0 m", "motor": "2x MAN 800", "hiz": "30 Knot" },
+          { "ad": "65 Bahama Bay", "boy": "19.8 m", "en": "5.4 m", "motor": "2x MAN V8", "hiz": "32 Knot" },
+          { "ad": "77 Classic", "boy": "23.8 m", "en": "6.0 m", "motor": "2x MAN V12", "hiz": "30 Knot" },
+          { "ad": "82 Cruiser", "boy": "25.0 m", "en": "6.4 m", "motor": "2x CAT C32", "hiz": "25 Knot" }
+        ]
+      }
+    ]
+  },
+  {
+    "marka": "Mazu Yachts",
+    "ulke": "Türkiye",
+    "seriler": [
+      {
+        "seri_adi": "Hardtop & Alpha",
+        "modeller": [
+          { "ad": "38 ST", "boy": "11.9 m", "en": "3.7 m", "motor": "2x Volvo IPS 400", "hiz": "36 Knot" },
+          { "ad": "42 Alpha", "boy": "12.8 m", "en": "3.9 m", "motor": "2x Volvo IPS 600", "hiz": "40 Knot" },
+          { "ad": "52", "boy": "15.8 m", "en": "4.6 m", "motor": "2x Volvo IPS 800", "hiz": "38 Knot" },
+          { "ad": "82", "boy": "24.5 m", "en": "5.9 m", "motor": "3x Volvo IPS 1350", "hiz": "40 Knot" }
+        ]
+      }
+    ]
+  },
+  {
+    "marka": "Alen Yacht",
+    "ulke": "Türkiye",
+    "seriler": [
+      {
+        "seri_adi": "Alen Serisi",
+        "modeller": [
+          { "ad": "Alen 45", "boy": "13.7 m", "en": "4.1 m", "motor": "2x Volvo IPS 600", "hiz": "38 Knot" },
+          { "ad": "Alen 55", "boy": "16.8 m", "en": "4.8 m", "motor": "2x Volvo D13", "hiz": "35 Knot" },
+          { "ad": "Alen 68", "boy": "20.3 m", "en": "6.3 m", "motor": "2x MAN V12", "hiz": "44 Knot" }
+        ]
+      }
+    ]
+  },
+  {
+    "marka": "Dromeas Yachts",
+    "ulke": "Türkiye",
+    "seriler": [
+      {
+        "seri_adi": "Center Console & SUV",
+        "modeller": [
+          { "ad": "D28 WA", "boy": "8.3 m", "en": "2.7 m", "motor": "Mercury 400 HP", "hiz": "50 Knot" },
+          { "ad": "D28 CC", "boy": "8.3 m", "en": "2.7 m", "motor": "2x Mercury 200", "hiz": "48 Knot" },
+          { "ad": "D33 SUV", "boy": "10.3 m", "en": "3.2 m", "motor": "2x Mercury 350", "hiz": "52 Knot" }
+        ]
+      }
+    ]
+  },
+  {
+    "marka": "Özel Türk Trawler & Motoryatlar",
+    "ulke": "Türkiye",
+    "seriler": [
+      {
+        "seri_adi": "Tersaneler & Klasikler",
+        "modeller": [
+          { "ad": "Kargı Trawler", "boy": "16.0 m", "en": "5.1 m", "motor": "2x Cummins 220", "hiz": "12 Knot" },
+          { "ad": "Ada Yatçılık", "boy": "24.0 m", "en": "6.5 m", "motor": "2x Scania 450", "hiz": "13 Knot" },
+          { "ad": "Mengi Yay Custom", "boy": "30.0 m", "en": "7.2 m", "motor": "2x CAT C32", "hiz": "16 Knot" },
+          { "ad": "Cobra Yacht", "boy": "28.0 m", "en": "7.0 m", "motor": "2x MAN 650", "hiz": "14 Knot" }
+        ]
+      }
+    ]
+  }
+]

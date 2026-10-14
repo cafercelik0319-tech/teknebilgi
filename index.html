@@ -1,0 +1,2345 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>BN MARİN | Kapsamlı Tekne & Güç Veri Portalı</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%2300D2FF'/><stop offset='100%25' stop-color='%23A855F7'/></linearGradient></defs><rect width='100' height='100' rx='22' fill='%23060E1F'/><path d='M25 72 L38 25 L65 42 Z M34 72 L58 48 L70 48 Z' stroke='url(%23g)' stroke-width='4' fill='none'/><polygon points='34,72 58,48 70,48' fill='url(%23g)' opacity='0.25'/><path d='M23 72 C 40 70, 50 78, 80 72' stroke='url(%23g)' stroke-width='4.5' fill='none'/><path d='M68 41 L71 34 L78 31 L71 28 L68 21 L65 28 L58 31 L65 34 Z' fill='%23ffffff'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cinzel:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-base: #060e1f;
+      --bg-surface: rgba(13, 27, 56, 0.72);
+      --bg-surface-hover: rgba(18, 38, 77, 0.85);
+      --card-border: rgba(56, 189, 248, 0.22);
+      --card-border-hover: rgba(0, 210, 255, 0.75);
+      --neon-blue: #00d2ff;
+      --neon-cyan: #38bdf8;
+      --accent-glow: 0 0 25px rgba(0, 210, 255, 0.35);
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --accent-gradient: linear-gradient(135deg, #0284c7 0%, #00d2ff 100%);
+    }
+
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+      font-family: 'Plus Jakarta Sans', sans-serif; 
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100vh;
+      height: 100dvh;
+      overflow: hidden;
+      background-color: var(--bg-base);
+      color: var(--text);
+    }
+
+    body {
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(14, 165, 233, 0.35) 0%, transparent 60%),
+        radial-gradient(circle at 85% 20%, rgba(56, 189, 248, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 15% 85%, rgba(30, 64, 175, 0.35) 0%, transparent 55%),
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 100% 100%, 42px 42px, 42px 42px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .top-fixed-wrapper {
+      flex-shrink: 0;
+      width: 100%;
+      background: rgba(6, 14, 31, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.22);
+      box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
+      z-index: 100;
+    }
+
+   /* ==========================================
+       VANEMAR ULTRA-PREMIUM SONSUS AKIŞ BANTI
+       ========================================== */
+    .top-security-bar {
+      position: relative;
+      display: flex;
+      overflow: hidden;
+      user-select: none;
+      /* Lüks gece mavisi & siber mor degrade + cam hissi */
+      background: linear-gradient(90deg, rgba(3, 10, 26, 0.95) 0%, rgba(10, 25, 55, 0.85) 50%, rgba(3, 10, 26, 0.95) 100%);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.28);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), inset 0 -1px 0 rgba(0, 210, 255, 0.15);
+      padding: 6px 0;
+      /* Sağ ve sol kenarlardan yumuşak şeffaflaşarak kaybolma maskesi */
+      mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
+    }
+
+    .marquee-track {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      gap: 60px;
+      min-width: 100%;
+      padding-right: 60px;
+      color: #e2e8f0;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.6px;
+      animation: continuousScroll 26s linear infinite;
+      transition: filter 0.3s ease;
+    }
+
+    .top-security-bar:hover .marquee-track {
+      animation-play-state: paused;
+      filter: brightness(1.1);
+    }
+
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+    }
+
+    /* İkonların arkasındaki zarif parlayan mini rozet */
+    .marquee-icon-box {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      background: rgba(0, 210, 255, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 10px rgba(0, 210, 255, 0.25);
+    }
+
+    .marquee-icon-box svg {
+      width: 12px;
+      height: 12px;
+      fill: #38bdf8;
+    }
+
+    /* Canlı sistem radar noktası (Pulsing Dot) */
+    .live-indicator {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background-color: #10b981;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #10b981;
+      animation: pulseRadar 1.5s infinite;
+      margin-right: 4px;
+    }
+
+    @keyframes pulseRadar {
+      0% { opacity: 0.4; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.3); box-shadow: 0 0 12px #34d399; }
+      100% { opacity: 0.4; transform: scale(0.9); }
+    }
+
+    .marquee-item span.highlight {
+      color: #00d2ff;
+      font-weight: 800;
+      text-shadow: 0 0 12px rgba(0, 210, 255, 0.65);
+      letter-spacing: 0.8px;
+    }
+
+    .marquee-tag {
+      font-size: 10px;
+      font-weight: 800;
+      background: rgba(168, 85, 247, 0.2);
+      color: #c084fc;
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      padding: 2px 7px;
+      border-radius: 99px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-left: 6px;
+    }
+
+    @keyframes continuousScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+    .top-security-bar:hover .marquee-link { animation-play-state: paused; }
+    .marquee-item { display: inline-flex; align-items: center; gap: 8px; flex-shrink: 0; }
+    .marquee-item svg { width: 14px; height: 14px; fill: #ffffff; flex-shrink: 0; }
+    .marquee-item span.highlight { 
+      color: #bae6fd; 
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+      text-decoration: underline; 
+      text-underline-offset: 3px; 
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+
+    header {
+      padding: 12px 18px 8px;
+      max-width: 1440px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .header-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .brand-title-group { text-align: left; }
+    header h1 {
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      background: linear-gradient(135deg, #ffffff 10%, #e0f2fe 55%, #00d2ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 25px rgba(56, 189, 248, 0.35);
+      line-height: 1.2;
+    }
+    .portal-subtitle {
+      font-size: 10.5px;
+      color: var(--neon-cyan);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 700;
+      opacity: 0.9;
+    }
+
+    .readme-trigger-btn {
+      background: rgba(15, 28, 54, 0.8);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #e0f2fe;
+      padding: 5px 13px;
+      border-radius: 99px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.25s;
+      white-space: nowrap;
+    }
+    .readme-trigger-btn:hover {
+      background: var(--neon-blue);
+      color: #020617;
+      border-color: #ffffff;
+      box-shadow: var(--accent-glow);
+      transform: translateY(-1px);
+    }
+
+    .controls-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .search-wrapper { position: relative; flex: 1; }
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 15px;
+      height: 15px;
+      fill: var(--text-dim);
+      pointer-events: none;
+    }
+    .search-input {
+      width: 100%;
+      background: rgba(15, 28, 54, 0.7);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      padding: 9px 16px 9px 38px;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 12.5px;
+      outline: none;
+      transition: all 0.25s;
+    }
+    .search-input:focus {
+      border-color: var(--neon-blue);
+      box-shadow: 0 0 18px rgba(0, 210, 255, 0.4);
+      background: rgba(18, 38, 77, 0.9);
+    }
+
+    .filter-dashboard {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+
+    .filter-sub-bar {
+      background: rgba(13, 27, 56, 0.65);
+      border: 1px solid rgba(56, 189, 248, 0.18);
+      border-radius: 10px;
+      padding: 6px 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .filter-label {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: var(--neon-cyan);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      flex-shrink: 0;
+    }
+    .filter-chips-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      flex: 1;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .filter-chip {
+      background: rgba(15, 28, 54, 0.85);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      color: #cbd5e1;
+      padding: 3.5px 9px;
+      border-radius: 7px;
+      font-size: 10.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .filter-chip .chip-logo-mini {
+      width: 16px;
+      height: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: #ffffff;
+      border-radius: 3px;
+      padding: 1px;
+    }
+    .filter-chip .chip-logo-mini img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    .filter-chip:hover {
+      border-color: var(--neon-blue);
+      transform: translateY(-1px);
+      box-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
+      color: #fff;
+    }
+    .filter-chip.active {
+      background: var(--accent-gradient);
+      color: #020617;
+      border-color: #ffffff;
+      font-weight: 800;
+      box-shadow: 0 0 16px rgba(0, 210, 255, 0.65);
+      transform: translateY(-1px);
+    }
+    .clear-all-filters-btn {
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      color: #fca5a5;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 10px;
+      font-weight: 700;
+      cursor: pointer;
+      display: none;
+      transition: all 0.2s;
+    }
+    .clear-all-filters-btn:hover {
+      background: #ef4444;
+      color: #fff;
+    }
+
+    .engine-chip-wrapper {
+      position: relative !important;
+      display: inline-flex !important;
+    }
+    .engine-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 330px;
+      max-width: 380px;
+      max-height: 310px;
+      overflow-y: auto;
+      background: rgba(8, 18, 38, 0.98);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.9);
+      border-radius: 9px;
+      padding: 12px;
+      z-index: 1500;
+      margin-top: 5px;
+      text-align: left;
+    }
+    .engine-chip-wrapper:hover .engine-dropdown-menu {
+      display: block !important;
+    }
+    .engine-dropdown-menu::-webkit-scrollbar { width: 5px; }
+    .engine-dropdown-menu::-webkit-scrollbar-thumb { background: rgba(56, 189, 248, 0.4); border-radius: 4px; }
+
+    .engine-sub-item-btn {
+      width: 100%;
+      background: rgba(15, 28, 54, 0.6);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: 6px;
+      padding: 4px 8px;
+      margin-bottom: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #f1f5f9;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: left;
+    }
+    .engine-sub-item-btn:hover {
+      background: rgba(0, 210, 255, 0.2);
+      border-color: var(--neon-blue);
+      transform: translateX(2px);
+      box-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
+    }
+    .engine-sub-item-btn span.hp-tag {
+      color: var(--neon-cyan);
+      font-size: 9.5px;
+      font-weight: 700;
+      background: rgba(56, 189, 248, 0.12);
+      padding: 1px 5px;
+      border-radius: 4px;
+    }
+
+    #alphabetPaginationContainer {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 6px;
+    }
+    .alphabet-pagination {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(13, 27, 56, 0.7);
+      padding: 3px 8px;
+      border-radius: 8px;
+      border: 1px solid rgba(56, 189, 248, 0.22);
+    }
+    .alpha-page-btn {
+      background: rgba(15, 28, 54, 0.85);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      color: var(--text-muted);
+      min-width: 28px;
+      height: 26px;
+      padding: 0 5px;
+      border-radius: 6px;
+      font-size: 10.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+    .alpha-page-btn:hover {
+      background: rgba(56, 189, 248, 0.2);
+      color: #fff;
+      border-color: var(--neon-blue);
+    }
+    .alpha-page-btn.active {
+      background: var(--neon-blue) !important;
+      color: #020617 !important;
+      border-color: #ffffff !important;
+      box-shadow: 0 0 10px var(--neon-blue);
+      font-weight: 800;
+    }
+    .alpha-dots {
+      color: var(--text-dim);
+      font-size: 11px;
+      padding: 0 3px;
+      user-select: none;
+    }
+
+    main {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      width: 100%;
+      padding: 16px 20px 28px;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    main::-webkit-scrollbar { width: 5px; }
+    main::-webkit-scrollbar-track { background: transparent; }
+    main::-webkit-scrollbar-thumb {
+      background: rgba(56, 189, 248, 0.35);
+      border-radius: 99px;
+    }
+    main::-webkit-scrollbar-thumb:hover {
+      background: var(--neon-blue);
+      box-shadow: 0 0 10px var(--neon-blue);
+    }
+
+    .stats-info {
+      text-align: center;
+      font-size: 11.5px;
+      color: var(--neon-cyan);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+    }
+
+    .brands-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(315px, 1fr));
+      gap: 16px;
+      width: 100%;
+    }
+
+    .brand-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+    .brand-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.45), transparent);
+    }
+    .brand-card:hover, .brand-card:active {
+      background: var(--bg-surface-hover);
+      border-color: var(--card-border-hover);
+      box-shadow: 0 10px 32px rgba(2, 6, 23, 0.7), 0 0 22px rgba(0, 210, 255, 0.28);
+      transform: translateY(-2px);
+    }
+
+    .brand-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .brand-logo-frame {
+      width: 62px;
+      height: 42px;
+      background: #ffffff;
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      text-decoration: none;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .brand-card:hover .brand-logo-frame {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.85);
+    }
+    .brand-logo-frame svg { width: 100%; height: 100%; display: block; }
+
+    .brand-meta { flex: 1; min-width: 0; }
+    .brand-link {
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      max-width: 100%;
+    }
+    .brand-link h2 { 
+      font-size: 14.5px; 
+      font-weight: 700; 
+      color: #fff; 
+      white-space: nowrap; 
+      overflow: hidden; 
+      text-overflow: ellipsis; 
+      transition: color 0.2s;
+    }
+    .brand-link svg { 
+      width: 12px; 
+      height: 12px; 
+      fill: var(--text-dim); 
+      flex-shrink: 0; 
+      transition: fill 0.2s, transform 0.2s;
+    }
+    .brand-link:hover h2 { color: var(--neon-blue); }
+    .brand-link:hover svg { fill: var(--neon-blue); transform: translate(1px, -1px); }
+
+    .brand-country-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 10.5px;
+      color: var(--neon-cyan);
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      margin-top: 2px;
+    }
+
+    .brand-body {
+      padding: 12px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      flex-grow: 1;
+    }
+    .series-block {
+      border-left: 2px solid rgba(56, 189, 248, 0.35);
+      padding-left: 10px;
+    }
+    .brand-card:hover .series-block { border-left-color: var(--neon-blue); }
+    .series-title {
+      font-size: 10px;
+      font-weight: 700;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 5px;
+    }
+
+    .models-list { display: flex; flex-wrap: wrap; gap: 4px; }
+
+    .model-btn {
+      background: rgba(15, 28, 54, 0.85);
+      border: 1px solid rgba(56, 189, 248, 0.18);
+      color: #cbd5e1;
+      padding: 4px 8px;
+      border-radius: 5px;
+      font-size: 10.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .model-btn:hover {
+      background: var(--neon-blue);
+      color: #020617;
+      border-color: #ffffff;
+      box-shadow: 0 0 12px var(--neon-blue);
+      transform: translateY(-1px);
+    }
+    .model-btn:active { transform: scale(0.96); }
+
+    .model-btn.highlighted {
+      border-color: #ffffff;
+      box-shadow: 0 0 14px rgba(0, 210, 255, 0.95);
+      background: var(--accent-gradient);
+      color: #020617;
+      font-weight: 800;
+    }
+    .model-btn.dimmed { opacity: 0.22; }
+
+    .engine-clickable-link {
+      color: var(--neon-blue);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s;
+      font-weight: 700;
+    }
+    .engine-clickable-link:hover {
+      color: #fff;
+      text-shadow: 0 0 8px var(--neon-blue);
+    }
+
+    footer {
+      flex-shrink: 0;
+      width: 100%;
+      background: rgba(6, 14, 31, 0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid rgba(56, 189, 248, 0.22);
+      box-shadow: 0 -8px 25px rgba(2, 6, 23, 0.6);
+      padding: 9px 18px;
+      z-index: 100;
+    }
+    .footer-inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+    footer p { 
+      color: var(--text-dim); 
+      font-size: 11px; 
+      line-height: 1.4; 
+      text-align: left; 
+    }
+    footer a { color: var(--neon-cyan); text-decoration: none; font-weight: 600; }
+    footer a:hover { text-decoration: underline; color: #fff; }
+
+    .neon-badge-wrapper {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .neon-rotating-badge {
+      position: relative;
+      padding: 6px 18px;
+      border-radius: 999px;
+      background: #050b17;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
+    }
+    .neon-rotating-badge::before {
+      content: '';
+      position: absolute;
+      width: 160%;
+      height: 400%;
+      background: conic-gradient(from 0deg, transparent 0deg, transparent 280deg, #00d2ff 340deg, #ffffff 360deg);
+      animation: rotateNeon 3s linear infinite;
+    }
+    .neon-rotating-badge::after {
+      content: '';
+      position: absolute;
+      inset: 2px;
+      background: #08152e;
+      border-radius: 999px;
+    }
+    .neon-badge-text {
+      position: relative;
+      z-index: 2;
+      font-size: 10.5px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: #cbd5e1;
+    }
+    .neon-badge-text span {
+      color: #00d2ff;
+      font-weight: 800;
+      text-shadow: 0 0 12px rgba(0, 210, 255, 0.75);
+    }
+    @keyframes rotateNeon {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 6, 17, 0.88);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 1200;
+    }
+    .modal-box {
+      background: #0c1833;
+      border: 1px solid var(--neon-blue);
+      box-shadow: 0 0 45px rgba(0, 210, 255, 0.35);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 480px;
+      padding: 22px;
+    }
+    .modal-box.large { max-width: 720px; max-height: 85vh; overflow-y: auto; }
+    .modal-head { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      margin-bottom: 14px; 
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
+      padding-bottom: 10px; 
+    }
+    .modal-head h3 { font-size: 17px; color: #fff; font-weight: 700; }
+    .modal-head button { 
+      background: none; 
+      border: none; 
+      color: #94a3b8; 
+      font-size: 22px; 
+      cursor: pointer; 
+      padding: 4px; 
+      transition: color 0.2s; 
+    }
+    .modal-head button:hover { color: #fff; }
+    .specs-table { width: 100%; border-collapse: collapse; }
+    .specs-table td { 
+      padding: 8px 0; 
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06); 
+      font-size: 12.5px; 
+    }
+    .specs-table td:first-child { color: var(--text-muted); width: 44%; }
+    .specs-table td:last-child { text-align: right; font-weight: 700; color: #fff; }
+
+    .readme-content { color: #cbd5e1; font-size: 12.5px; line-height: 1.6; text-align: left; }
+    .readme-content h4 { color: var(--neon-cyan); margin: 14px 0 4px; font-size: 13.5px; }
+    .readme-content ul { padding-left: 18px; margin-bottom: 8px; }
+
+    .boats-matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 8px;
+      max-height: 55vh;
+      overflow-y: auto;
+      padding: 6px 2px;
+    }
+    .matrix-boat-pill {
+      background: rgba(15, 28, 54, 0.85);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 8px;
+      padding: 8px 10px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      transition: all 0.2s;
+    }
+    .matrix-boat-pill:hover {
+      background: var(--neon-blue);
+      border-color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0, 210, 255, 0.4);
+    }
+    .matrix-boat-pill:hover span { color: #020617 !important; }
+    .matrix-brand { font-size: 10px; color: var(--neon-cyan); font-weight: 700; text-transform: uppercase; }
+    .matrix-model { font-size: 12px; color: #fff; font-weight: 700; }
+
+    @media (max-width: 768px) {
+      .header-top-row { flex-direction: column; text-align: center; }
+      .brand-title-group { text-align: center; }
+      .footer-inner { justify-content: center; text-align: center; }
+      footer p { text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      header h1 { font-size: 17px; }
+      .brands-grid { grid-template-columns: 1fr; }
+      .filter-sub-bar { padding: 4px 8px !important; margin-bottom: 4px !important; }
+      .filter-label { font-size: 10px !important; }
+      .filter-chips-row { display: flex !important; flex-wrap: nowrap !important; overflow-x: auto !important; -webkit-overflow-scrolling: touch; gap: 5px !important; }
+      .filter-chip { flex-shrink: 0 !important; }
+    }
+    /* ==========================================
+   BN-MARIN MOBİL ARAYÜZ OPTİMİZASYONU
+   ========================================== */
+@media (max-width: 768px) {
+  /* Üst kayan bant yüksekliği ve boyutu */
+  .top-security-bar {
+    font-size: 11px !important;
+    padding: 6px 10px !important;
+  }
+
+  /* Header üst satırını derli toplu yap */
+  .header-top-row {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 12px !important;
+    padding: 10px 12px !important;
+  }
+
+  /* Logo ve Başlık bloğu */
+  .brand-title-group {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+  }
+
+  .brand-title-group svg {
+    width: 38px !important;
+    height: 38px !important;
+  }
+
+  .portal-subtitle {
+    font-size: 10px !important;
+    letter-spacing: 0.3px !important;
+  }
+
+  /* README ve Asistan butonlarını yan yana al, kompakt yap */
+  .header-top-row > div:has(.readme-trigger-btn),
+  .header-top-row {
+    width: 100% !important;
+  }
+
+  /* Butonların yan yana eşit oturması */
+  .readme-trigger-btn {
+    flex: 1 !important;
+    padding: 7px 10px !important;
+    font-size: 11.5px !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+  }
+
+  /* Eğer butonlar alt alta diziliyorsa yan yana sarmalayacak stil */
+  .header-top-row button {
+    margin: 0 !important;
+  }
+
+  /* Arama çubuğu mobilde tam ekran genişliğinde */
+  .controls-row {
+    padding: 0 10px 10px 10px !important;
+  }
+
+  /* Filtre barlarının dokunmatik kaydırılması */
+  .filter-row {
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    scrollbar-width: none !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 4px 2px !important;
+  }
+  .filter-row::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  /* Alfabe çubuğu butonları */
+  .alpha-nav {
+    gap: 3px !important;
+  }
+  .alpha-btn {
+    padding: 4px 7px !important;
+    font-size: 11px !important;
+  }
+
+  /* Tekne kartları mobilde kenarlardan boşluklu dursun */
+  .card-grid {
+    padding: 10px !important;
+    gap: 12px !important;
+  }
+  /* Mobil Header Buton Hizalaması */
+  .header-top-row {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 12px !important;
+    padding: 10px 12px !important;
+  }
+  .brand-title-group {
+    justify-content: center !important;
+  }
+  .header-top-row > div:last-child {
+    width: 100% !important;
+    max-width: 420px !important;
+  }
+  .readme-trigger-btn {
+    flex: 1 !important;
+    justify-content: center !important;
+    padding: 8px 10px !important;
+    font-size: 12px !important;
+    white-space: nowrap !important;
+  }
+/* Sadece "Premium" Yazısının Kendisi Parlasın (Arka plansız / Kutusuz) */
+    .premium-text-glow {
+      background: transparent !important;
+      border: none !important;
+      cursor: pointer;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #94a3b8;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .premium-text-glow .glow-word {
+      color: #38bdf8;
+      font-weight: 800;
+      animation: textPulse 1.8s infinite alternate;
+    }
+
+    .premium-text-glow:hover .glow-word {
+      color: #00d2ff;
+      text-shadow: 0 0 14px rgba(0, 210, 255, 1), 0 0 25px rgba(0, 210, 255, 0.8);
+    }
+
+    /* Yazı parıldama animasyonu */
+    @keyframes textPulse {
+      0% {
+        text-shadow: 0 0 4px rgba(56, 189, 248, 0.4);
+      }
+      100% {
+        text-shadow: 0 0 12px rgba(0, 210, 255, 0.95), 0 0 22px rgba(56, 189, 248, 0.7);
+      }
+    }
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="top-fixed-wrapper">
+  <div class="top-security-bar">
+      <!-- 1. GRUP -->
+      <a href="https://vanemar.com/tr?srsltid=AU7gw4VqYNOMNEIy35uDoTHDUZlyL6fA8hgnRcfTx1G02sMlhjTkj_48" target="_blank" rel="noopener noreferrer" class="marquee-track" title="Vanemar Akıllı Tekne Takip & Güvenlik Sistemleri">
+        <div class="marquee-item">
+          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+          <span>Aklın kalmasın limanda, <span class="highlight">Vanemar</span> her an yanında. Tekneni 7/24 cebinden takip et!</span>
+        </div>
+        <div class="marquee-item">
+          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+          <span>Sintine alarmı, akü voltajı, GPS konum &amp; sahil besleme &bull; Tıkla!</span>
+        </div>
+      </a>
+
+      <!-- 2. GRUP (Sonsuz Döngü Tamamlayıcısı) -->
+      <a href="https://vanemar.com/tr?srsltid=AU7gw4VqYNOMNEIy35uDoTHDUZlyL6fA8hgnRcfTx1G02sMlhjTkj_48" target="_blank" rel="noopener noreferrer" class="marquee-track" aria-hidden="true" tabindex="-1">
+        <div class="marquee-item">
+          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+          <span>Aklın kalmasın limanda, <span class="highlight">Vanemar</span> her an yanında. Tekneni 7/24 cebinden takip et!</span>
+        </div>
+        <div class="marquee-item">
+          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+          <span>Sintine alarmı, akü voltajı, GPS konum &amp; sahil besleme &bull; Tıkla!</span>
+        </div>
+      </a>
+    </div>
+
+    <header>
+      <div class="header-top-row">
+        <div class="brand-title-group" style="display: flex; align-items: center; gap: 14px;">
+          <!-- 1. Seçtiğin Vektörel Logo (Pruva & Nur Işığı) -->
+          <svg width="46" height="46" viewBox="0 0 100 100" style="flex-shrink: 0;">
+            <defs>
+              <linearGradient id="bnLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00D2FF" />
+                <stop offset="100%" stop-color="#A855F7" />
+              </linearGradient>
+            </defs>
+            <path d="M15 75 C 35 73, 50 82, 85 75" stroke="url(#bnLogoGrad)" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+            <path d="M22 73 L37 24 L68 43 Z" stroke="url(#bnLogoGrad)" stroke-width="4" fill="none" stroke-linejoin="round"/>
+            <path d="M32 73 L60 47 L73 47 Z" stroke="url(#bnLogoGrad)" stroke-width="3" fill="none" stroke-linejoin="round"/>
+            <polygon points="32,73 60,47 73,47" fill="url(#bnLogoGrad)" opacity="0.25" />
+            <path d="M70 41 L73 35 L80 32 L73 29 L70 23 L67 29 L60 32 L67 35 Z" fill="#ffffff" />
+          </svg>
+
+          <!-- BN MARIN Marka Başlığı -->
+          <div>
+            <div style="display: flex; align-items: center; gap: 6px;">
+              <span style="font-size: 22px; font-weight: 900; letter-spacing: 1.5px; color: #ffffff;">BN</span>
+              <span style="font-size: 22px; font-weight: 300; letter-spacing: 1px; color: #00D2FF;">MARİN</span>
+             </div>
+            <div class="portal-subtitle" style="margin-top: 2px; font-size: 11px; color: #94A3B8;">Rotanızdaki her tersane, aradığınız her tekne.</div>
+          </div>
+        </div>
+        <!-- Mobilde ve Masaüstünde Butonları Hizalayan Kapsayıcı -->
+      <div style="display: flex; gap: 8px; align-items: center;">
+        <button type="button" class="readme-trigger-btn" onclick="openReadme()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          README
+        </button>
+
+        <button type="button" class="readme-trigger-btn" onclick="openAssistantModal()" style="border-color: #a855f7; color: #d8b4fe; background: rgba(88, 28, 135, 0.3);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13z"/></svg>
+          Asistan (AI Finder)
+        </button>
+      </div>
+      </div>
+
+      <div class="controls-row">
+        <div class="search-wrapper">
+          <svg class="search-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+          <input type="text" id="searchInput" class="search-input" placeholder="Tersane, model, ülke veya güç ünitesi ara (örn: Safter, Riva, İtalya, Volvo, MAN)...">
+        </div>
+      </div>
+
+      <div class="filter-dashboard">
+        <div class="filter-sub-bar">
+          <span class="filter-label">🌍 Ülke:</span>
+          <div class="filter-chips-row" id="countryChipsContainer">
+            <button class="filter-chip active" onclick="filterByCountry('ALL', this)">Tümü</button>
+            <button class="filter-chip" onclick="filterByCountry('Türkiye', this)">🇹🇷 Türkiye</button>
+            <button class="filter-chip" onclick="filterByCountry('İtalya', this)">🇮🇹 İtalya</button>
+            <button class="filter-chip" onclick="filterByCountry('İngiltere', this)">🇬🇧 İngiltere</button>
+            <button class="filter-chip" onclick="filterByCountry('ABD', this)">🇺🇸 ABD</button>
+            <button class="filter-chip" onclick="filterByCountry('Fransa', this)">🇫🇷 Fransa</button>
+            <button class="filter-chip" onclick="filterByCountry('Almanya', this)">🇩🇪 Almanya</button>
+            <button class="filter-chip" onclick="filterByCountry('Finlandiya', this)">🇫🇮 Finlandiya</button>
+            <button class="filter-chip" onclick="filterByCountry('İsveç', this)">🇸🇪 İsveç</button>
+            <button class="filter-chip" onclick="filterByCountry('Hollanda', this)">🇳🇱 Hollanda</button>
+            <button class="filter-chip" onclick="filterByCountry('İspanya', this)">🇪🇸 İspanya</button>
+          </div>
+          <button id="clearAllFiltersBtn" class="clear-all-filters-btn" onclick="resetAllFilters()">Filtreleri Sıfırla ✕</button>
+        </div>
+
+        <div class="filter-sub-bar">
+          <span class="filter-label">⚡ Makine:</span>
+          <div class="filter-chips-row">
+            <button class="filter-chip active" onclick="filterByEngine('ALL', this)">Tümü</button>
+            
+            <div class="engine-chip-wrapper">
+              <button class="filter-chip" onclick="filterByEngine('Volvo IPS', this)">
+                <span class="chip-logo-mini"><img src="logolar/volvo.png" alt="Volvo" onerror="this.style.display='none'"></span>
+                Volvo IPS
+              </button>
+              <div class="engine-dropdown-menu" id="dropdown-Volvo">Veriler taranıyor...</div>
+            </div>
+
+            <div class="engine-chip-wrapper">
+              <button class="filter-chip" onclick="filterByEngine('MAN', this)">
+                <span class="chip-logo-mini"><img src="logolar/man.png" alt="MAN" onerror="this.style.display='none'"></span>
+                MAN V8/V12
+              </button>
+              <div class="engine-dropdown-menu" id="dropdown-MAN">Veriler taranıyor...</div>
+            </div>
+
+            <div class="engine-chip-wrapper">
+              <button class="filter-chip" onclick="filterByEngine('CAT', this)">
+                <span class="chip-logo-mini"><img src="logolar/cat.png" alt="CAT" onerror="this.style.display='none'"></span>
+                CAT C18
+              </button>
+              <div class="engine-dropdown-menu" id="dropdown-CAT">Veriler taranıyor...</div>
+            </div>
+
+            <div class="engine-chip-wrapper">
+              <button class="filter-chip" onclick="filterByEngine('Scania', this)">
+                <span class="chip-logo-mini"><img src="logolar/scania.png" alt="Scania" onerror="this.style.display='none'"></span>
+                Scania
+              </button>
+              <div class="engine-dropdown-menu" id="dropdown-Scania">Veriler taranıyor...</div>
+            </div>
+
+            <div class="engine-chip-wrapper">
+              <button class="filter-chip" onclick="filterByEngine('Cummins', this)">
+                <span class="chip-logo-mini"><img src="logolar/cummins.png" alt="Cummins" onerror="this.style.display='none'"></span>
+                Cummins
+              </button>
+              <div class="engine-dropdown-menu" id="dropdown-Cummins">Veriler taranıyor...</div>
+            </div>
+
+            <div class="engine-chip-wrapper">
+              <button class="filter-chip" onclick="filterByEngine('Mercury', this)">
+                <span class="chip-logo-mini"><img src="logolar/mercury.png" alt="Mercury" onerror="this.style.display='none'"></span>
+                Mercury
+              </button>
+              <div class="engine-dropdown-menu" id="dropdown-Mercury">Veriler taranıyor...</div>
+            </div>
+
+            <div class="engine-chip-wrapper">
+              <button class="filter-chip" onclick="filterByEngine('Yamaha', this)">
+                <span class="chip-logo-mini"><img src="logolar/yamaha.png" alt="Yamaha" onerror="this.style.display='none'"></span>
+                Yamaha
+              </button>
+              <div class="engine-dropdown-menu" id="dropdown-Yamaha">Veriler taranıyor...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="az-bar" id="azBar" style="display: none !important;"></div>
+      <div id="alphabetPaginationContainer"></div>
+    </header>
+  </div>
+
+  <main id="mainScrollArea">
+    <div class="stats-info" id="statsCount">Yükleniyor...</div>
+    <div class="brands-grid" id="catalogGrid"></div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p>
+        Bu veritabanı <strong>Sahibinden.com, YachtWorld, Powerboat Guide ve üretici kataloglarından</strong> derlenmiştir.<br>
+        <a href="javascript:void(0)" onclick="openReadme()">Veri Kaynakçası ve README</a> | Tekne Takip: <a href="https://vanemar.com/tr?srsltid=AU7gw4VqYNOMNEIy35uDoTHDUZlyL6fA8hgnRcfTx1G02sMlhjTkj_48" target="_blank" rel="noopener noreferrer">Vanemar</a>
+      </p>
+
+      <div class="neon-badge-wrapper">
+        <div class="neon-rotating-badge">
+          <div class="neon-badge-text">
+            Crafted &amp; Engineered by <span>CAFER ÇELİK</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="specsModal" onclick="this.style.display='none'">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <div class="modal-head">
+        <div>
+          <h3 id="mTitle">-</h3>
+          <p id="mSubtitle" style="font-size: 11px; color: var(--neon-blue); margin-top: 2px;">-</p>
+        </div>
+        <button onclick="document.getElementById('specsModal').style.display='none'">&times;</button>
+      </div>
+      <table class="specs-table">
+        <tr><td>Tam Boy (LOA)</td><td id="m_loa">-</td></tr>
+        <tr><td>Genişlik (Beam)</td><td id="m_beam">-</td></tr>
+        <tr><td>Su Çekimi (Draft)</td><td id="m_draft">-</td></tr>
+        <tr>
+          <td>Motor Seçeneği</td>
+          <td><span id="m_engine" class="engine-clickable-link" onclick="openEngineDetailModal()">-</span></td>
+        </tr>
+        <tr><td>Maksimum Hız</td><td id="m_speed">-</td></tr>
+        <tr><td>Kamara Kapasitesi</td><td id="m_cabins">-</td></tr>
+        <tr>
+          <td>Özellik:</td>
+          <td>
+            <span class="premium-text-glow" onclick="toggleVanemarSpecs()" title="Uyumlu Vanemar IoT Cihazlarını Göster">
+              <span class="glow-word">Premium</span> Seçenekler ↗
+            </span>
+          </td>
+        </tr>
+      </table>
+
+      <!-- AÇILIR VANEMAR UYUMLU ÜRÜNLER ALANI -->
+      <div id="vanemarSpecsBox" class="vanemar-compatible-box">
+        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(250,204,21,0.25); padding-bottom:4px; margin-bottom:6px;">
+          <span style="font-size:11px; font-weight:800; color:#fde047;">🛡️ Bu Modele Uyumlu Vanemar IoT Donanımları</span>
+          <span style="font-size:9.5px; color:#94a3b8;">(Mağazada İncele ↗)</span>
+        </div>
+        <div id="vanemarProductsList"></div>
+      </div>
+      </table>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="engineDetailModal" onclick="this.style.display='none'" style="z-index: 1300;">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <div class="modal-head">
+        <div>
+          <h3 id="eTitle">Motor Teknik Özellikleri</h3>
+          <p id="eSubtitle" style="font-size: 11px; color: var(--neon-blue); margin-top: 2px;">Denizcilik Güç Ünitesi Föyü</p>
+        </div>
+        <button onclick="document.getElementById('engineDetailModal').style.display='none'">&times;</button>
+      </div>
+      <table class="specs-table">
+        <tr><td>Güç (Toplam HP)</td><td id="e_hp">-</td></tr>
+        <tr><td>Silindir Konfigürasyonu</td><td id="e_cylinders">-</td></tr>
+        <tr><td>Silindir Hacmi</td><td id="e_displacement">-</td></tr>
+        <tr><td>Yakıt Tipi</td><td id="e_fuel">-</td></tr>
+        <tr><td>Hava / Besleme</td><td id="e_aspiration">-</td></tr>
+        <tr><td>Tahrik / Şanzıman Tipi</td><td id="e_propulsion">-</td></tr>
+        <tr><td>Ağırlık (Kuru)</td><td id="e_weight">-</td></tr>
+        <tr>
+          <td>Kullanan Tekneler</td>
+          <td id="e_boats" style="max-height: 120px; overflow-y: auto; display: block; font-size: 11px; color: var(--neon-cyan);">-</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="allEngineBoatsModal" onclick="this.style.display='none'" style="z-index: 1400;">
+    <div class="modal-box large" onclick="event.stopPropagation()">
+      <div class="modal-head">
+        <div>
+          <h3 id="aebTitle">Motoru Kullanan Tüm Tekneler</h3>
+          <p id="aebSubtitle" style="font-size: 11px; color: var(--neon-blue); margin-top: 2px;">Kapsamlı Tersane &amp; Model Matrisi</p>
+        </div>
+        <button onclick="document.getElementById('allEngineBoatsModal').style.display='none'">&times;</button>
+      </div>
+      <div class="boats-matrix-grid" id="allEngineBoatsGrid"></div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="readmeModal" onclick="this.style.display='none'">
+    <div class="modal-box large" onclick="event.stopPropagation()">
+      <div class="modal-head">
+        <h3>📌 Proje & Kapsamlı Veri Kaynakçası (README)</h3>
+        <button onclick="document.getElementById('readmeModal').style.display='none'">&times;</button>
+      </div>
+     <div class="readme-content">
+        <div style="margin-bottom: 16px; border-bottom: 1px solid rgba(56, 189, 248, 0.2); padding-bottom: 12px; display: flex; align-items: center; gap: 12px;">
+          <!-- BN MARIN Mini Logo -->
+          <svg width="38" height="38" viewBox="0 0 100 100" style="flex-shrink: 0;">
+            <defs>
+              <linearGradient id="readmeLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00D2FF" />
+                <stop offset="100%" stop-color="#A855F7" />
+              </linearGradient>
+            </defs>
+            <path d="M15 75 C 35 73, 50 82, 85 75" stroke="url(#readmeLogoGrad)" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <path d="M22 73 L37 24 L68 43 Z" stroke="url(#readmeLogoGrad)" stroke-width="4.5" fill="none" stroke-linejoin="round"/>
+            <path d="M32 73 L60 47 L73 47 Z" stroke="url(#readmeLogoGrad)" stroke-width="3.5" fill="none" stroke-linejoin="round"/>
+            <polygon points="32,73 60,47 73,47" fill="url(#readmeLogoGrad)" opacity="0.25" />
+            <path d="M70 41 L73 35 L80 32 L73 29 L70 23 L67 29 L60 32 L67 35 Z" fill="#ffffff" />
+          </svg>
+
+          <!-- Başlık & Açıklama -->
+          <div>
+            <h3 style="margin: 0 0 3px 0; font-size: 1.15rem; display: flex; align-items: center; gap: 6px;">
+              <span style="font-weight: 900; color: #ffffff;">BN</span>
+              <span style="font-weight: 300; color: #00D2FF;">MARİN</span>
+              <span style="color: #64748b; font-weight: 400; font-size: 1rem; margin: 0 2px;">|</span>
+              <span style="color: #38bdf8; font-weight: 600; font-size: 0.98rem;">Küresel Tekne, Tersane ve Güç Kataloğu</span>
+            </h3>
+            <p style="color: #94a3b8; margin: 0; font-size: 0.82rem; font-style: italic;">"Rotanızdaki her tersane, aradığınız her tekne."</p>
+          </div>
+        </div>
+
+        <p style="color: #cbd5e1; font-size: 0.85rem; line-height: 1.5; margin-bottom: 14px;">
+          Türkiye'de ve dünyada faaliyet gösteren 160'tan fazla tersanenin, model serilerinin, gövde hidrostatiklerinin ve sevk sistemlerinin teknik parametrelerle derlendiği interaktif açık deniz referans kütüphanesidir.
+        </p>
+
+        <h4>1. Tekne &amp; Tersane Veri Tabanı</h4>
+        <ul>
+          <li><strong>Sahibinden.com:</strong> Türkiye'deki tescilli yerli polyester atölyeleri ve güncel piyasa envanteri[cite: 5].</li>
+          <li><strong>Yatvitrini &amp; Denizbülten:</strong> Türkiye sularındaki geleneksel sac/ahşap trawler ve motoryat imalatçıları[cite: 5].</li>
+          <li><strong>YachtWorld &amp; Powerboat Guide:</strong> 10.000+ motoryatın fabrika arşivleri, LOA, beam, draft ve deplasman spesifikasyonları[cite: 5].</li>
+        </ul>
+
+        <h4>2. Motor &amp; Güç Ünitesi Teknik Kaynakçası</h4>
+        <ul>
+          <li><strong>Volvo Penta Marine:</strong> D-Serisi (D1-D16) ve IPS Pod Drive ürün föyleri[cite: 5].</li>
+          <li><strong>MAN Engines:</strong> V8-1200 ve V12-2000 marin dizel arşivleri[cite: 5].</li>
+          <li><strong>Caterpillar Marine (CAT):</strong> C18 ACERT ve C32 deplasman şartnameleri[cite: 5].</li>
+          <li><strong>Scania &amp; Cummins Marine:</strong> Scania DI13/DI16 ve Cummins Quantum serisi föyleri[cite: 5].</li>
+          <li><strong>Mercury &amp; Yamaha Marine:</strong> Verado ve Offshore servis kılavuzları[cite: 5].</li>
+        </ul>
+
+        <h4>3. Telemetri &amp; Akıllı IoT Donanım Eşleştirmesi (Vanemar Entegrasyonu)</h4>
+        <p>Her modelin teknik föyünde boyuta (LOA/Feet) ve kullanım tipine göre doğrudan Vanemar donanımları dinamik olarak önerilir ve ilgili ürün sayfalarına yönlendirilir:</p>
+        <ul>
+          <li><strong>Küçük &amp; Açık Tekneler (&lt; 35 ft):</strong> Vanemar Gateway, kablosuz sintine suyu alarmı ve tekli akü sensörü kiti.</li>
+          <li><strong>Lüks Motoryat &amp; Flybridge (35 - 55 ft):</strong> Canlı yayın HD kablosuz tekne kamerası, duman/yangın dedektörü ve sahil besleme akıllı prizi.</li>
+          <li><strong>Mega Yat &amp; Trawler (&gt; 55 ft):</strong> NMEA 2000 motor/tank entegrasyon adaptörü ve çoklu kamera gözetim ağı.</li>
+        </ul>
+
+        <h4>4. Doğal Dil İşleme &amp; Akıllı Asistan (AI Finder)</h4>
+        <p>Kullanıcıların <em>"Volvo kullanan İtalyan tekneleri"</em>, <em>"300 hp üstü Mercury"</em> veya <em>"Yerli sac trawler"</em> gibi serbest metin sorgularını anlık filtreleyebilen kural tabanlı yapay zeka arama motoru[cite: 5].</p>
+      </div>
+    <!-- AKILLI ASİSTAN MODAL -->
+  <div class="modal-overlay" id="assistantModal" onclick="this.style.display='none'" style="z-index: 1600;">
+    <div class="modal-box large" onclick="event.stopPropagation()" style="border-color: #a855f7; box-shadow: 0 0 35px rgba(168, 85, 247, 0.4);">
+      <div class="modal-head" style="border-bottom-color: rgba(168, 85, 247, 0.3);">
+        <div>
+          <h3 style="color: #f3e8ff; display: flex; align-items: center; gap: 8px;">
+            <span>🤖</span> Akıllı Tekne & Güç Danışmanı
+          </h3>
+          <p style="font-size: 11px; color: #c084fc; margin-top: 2px;">Doğal dille arayın: Örn: "Volvo kullanan İtalyan tekneleri", "Mercury 300 hp", "Yerli trawler"</p>
+        </div>
+        <button onclick="document.getElementById('assistantModal').style.display='none'">&times;</button>
+      </div>
+
+      <div style="display: flex; gap: 8px; margin: 15px 0 10px;">
+        <input type="text" id="aiAssistantInput" placeholder="Asistana ne aradığınızı söyleyin..." 
+               style="flex: 1; background: rgba(15, 23, 42, 0.8); border: 1px solid #a855f7; border-radius: 8px; padding: 10px 14px; color: #fff; font-size: 13px; outline: none;"
+               onkeydown="if(event.key==='Enter') executeAiAssistantQuery()">
+        <button onclick="executeAiAssistantQuery()" style="background: linear-gradient(135deg, #9333ea, #a855f7); color: #fff; border: none; padding: 0 18px; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 13px;">
+          Sorgula ⚡
+        </button>
+      </div>
+
+      <div id="aiAssistantSummary" style="font-size: 11.5px; color: #d8b4fe; margin-bottom: 12px; font-weight: 600;"></div>
+      <div class="boats-matrix-grid" id="aiAssistantGrid">
+        <div style="grid-column: 1/-1; text-align: center; color: #94a3b8; padding: 30px; font-size: 12px;">
+          Örnek sorular:<br>
+          • <em>"Volvo penta motorlu tekneler"</em><br>
+          • <em>"300 hp üstü mercury olanlar"</em><br>
+          • <em>"Türkiye sac trawler modelleri"</em>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // Vanemar kutusunu açıp kapatan tetikleyici
+    function toggleVanemarSpecs() {
+      const box = document.getElementById("vanemarSpecsBox");
+      if (!box) return;
+      box.style.display = (box.style.display === "block") ? "none" : "block";
+    }
+
+    // Teknenin boyuna göre uyumlu Vanemar ürünlerini eşleştirir
+    function renderVanemarRecommendations(loaFeet) {
+      const listEl = document.getElementById("vanemarProductsList");
+      if (!listEl) return;
+
+      let products = [];
+
+      // 1. Her modelde mutlaka merkez ünite Gateway
+      products.push({
+        title: "Vanemar Gateway (Merkez Ünite)",
+        desc: "GPS Seyir & Geofence, Küresel SIM ve Ana Akü Voltaj Takibi",
+        badge: "Zorunlu Merkez",
+        url: "https://vanemar.com/tr/products/vanemar-gateway"
+      });
+
+      // 2. Boyuta göre donanım tavsiyesi
+      if (loaFeet < 35) {
+        // Küçük / Açık / Günübirlik Sınıfı
+        products.push({
+          title: "Vanemar Tekne Sintine Alarmı",
+          desc: "Sintinedeki su yükselmesine karşı anlık kablosuz uyarı",
+          badge: "Su Güvenliği",
+          url: "https://vanemar.com/tr/products/bilge-sensor"
+        });
+        products.push({
+          title: "Vanemar Tekne Akü Sensörü",
+          desc: "İkinci servis/motor aküsü için anlık voltaj takibi",
+          badge: "Enerji",
+          url: "https://vanemar.com/tr/products/battery-sensor-marine"
+        });
+      } else if (loaFeet >= 35 && loaFeet <= 55) {
+        // 52 Fly gibi Orta ve Lüks Motoryatlar
+        products.push({
+          title: "Vanemar Kablosuz Tekne Kamerası",
+          desc: "Harekete duyarlı HD canlı yayın ve bulut kayıt sistemi",
+          badge: "Kamera & Güvenlik",
+          url: "https://vanemar.com/tr/products/vanemar-camera"
+        });
+        products.push({
+          title: "Vanemar Duman/Yangın Dedektörü",
+          desc: "Makine dairesi ve kamaralar için erken uyarı sireni",
+          badge: "Yangın & Su",
+          url: "https://vanemar.com/tr/products/smoke-sensor"
+        });
+        products.push({
+          title: "Vanemar Akıllı Priz",
+          desc: "Sahil beslemesi kesildiğinde anında bildirim ve uzaktan kontrol",
+          badge: "Sahil Besleme",
+          url: "https://vanemar.com/tr/products/smart-plug-power-sensor"
+        });
+      } else {
+        // 55 ft ve üzeri Mega Yatlar / Trawlerlar
+        products.push({
+          title: "Vanemar NMEA 2000 Adaptörü",
+          desc: "Çift makine, devir, yakıt, atık su ve tank verilerini tek ekranda izleme",
+          badge: "Tam Entegrasyon",
+          url: "https://vanemar.com/tr/products/nmea-2000-adapter"
+        });
+        products.push({
+          title: "Çoklu Kablosuz Kamera & PIR Hareket Ağı",
+          desc: "Flybridge, havuzluk ve makine dairesi için 360° gözetim",
+          badge: "Üst Düzey Güvenlik",
+          url: "https://vanemar.com/tr/products/vanemar-camera"
+        });
+        
+        
+      }
+
+      listEl.innerHTML = products.map(p => `
+        <a href="${p.url}" target="_blank" rel="noopener noreferrer" class="vanemar-item-card" title="Vanemar sitesinde ürünü incele">
+          <div style="flex:1; min-width:0; padding-right:8px;">
+            <div style="font-size:11.5px; font-weight:700; color:#38bdf8; display:flex; align-items:center; gap:5px;">
+              <span>⚡ ${p.title}</span>
+              <span style="font-size:8.5px; background:rgba(250,204,21,0.2); color:#fef08a; border:1px solid rgba(250,204,21,0.4); padding:1px 4px; border-radius:3px;">${p.badge}</span>
+            </div>
+            <div style="font-size:10px; color:#94a3b8; margin-top:2px;">${p.desc}</div>
+          </div>
+          <span style="font-size:11px; color:#facc15; font-weight:700; flex-shrink:0;">İncele ↗</span>
+        </a>
+      `).join("");
+    }
+      function normalizeTr(str) {
+        if (!str) return "";
+        return str
+      .replace(/İ/g, "i")
+      .replace(/I/g, "ı")
+      .toLocaleLowerCase("tr-TR")
+      .trim();
+}
+    function getCountryFlag(country) {
+      if (country.includes("Türkiye")) return "🇹🇷";
+      if (country.includes("İtalya")) return "🇮🇹";
+      if (country.includes("İngiltere")) return "🇬🇧";
+      if (country.includes("ABD")) return "🇺🇸";
+      if (country.includes("Fransa")) return "🇫🇷";
+      if (country.includes("Almanya")) return "🇩🇪";
+      if (country.includes("Finlandiya")) return "🇫🇮";
+      if (country.includes("İsveç")) return "🇸🇪";
+      if (country.includes("Hollanda")) return "🇳🇱";
+      if (country.includes("İspanya")) return "🇪🇸";
+      if (country.includes("Norveç")) return "🇳🇴";
+      if (country.includes("Polonya")) return "🇵🇱";
+      if (country.includes("Yunanistan")) return "🇬🇷";
+      return "📍";
+    }
+
+    function getBrandVectorLogo(brandName) {
+      const b = brandName.toLowerCase();
+      if (b.includes("riva")) return `<svg viewBox="0 0 100 60"><rect width="100" height="60" fill="#042f2e"/><text x="50" y="38" font-family="'Cinzel', serif" font-weight="700" font-size="20" fill="#2dd4bf" text-anchor="middle" font-style="italic" letter-spacing="2">Riva</text></svg>`;
+      if (b.includes("ferretti")) return `<svg viewBox="0 0 100 60"><rect width="100" height="60" fill="#0f172a"/><path d="M22 18h56v3H22zm0 8h38v3H22zm0 8h24v3H22z" fill="#38bdf8"/><text x="50" y="50" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="9" fill="#ffffff" text-anchor="middle" letter-spacing="1">FERRETTI</text></svg>`;
+      if (b.includes("pershing")) return `<svg viewBox="0 0 100 60"><rect width="100" height="60" fill="#18181b"/><polygon points="20,16 50,28 20,40" fill="#71717a"/><polygon points="35,16 65,28 35,40" fill="#e4e4e7"/><polygon points="50,16 80,28 50,40" fill="#38bdf8"/><text x="50" y="52" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="8.5" fill="#ffffff" text-anchor="middle" letter-spacing="1.5">PERSHING</text></svg>`;
+      if (b.includes("sunseeker")) return `<svg viewBox="0 0 100 60"><rect width="100" height="60" fill="#07111e"/><circle cx="50" cy="22" r="9" fill="none" stroke="#38bdf8" stroke-width="2.5"/><circle cx="50" cy="22" r="4" fill="#38bdf8"/><text x="50" y="47" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="9" fill="#ffffff" text-anchor="middle" letter-spacing="1.5">SUNSEEKER</text></svg>`;
+      if (b.includes("fairline")) return `<svg viewBox="0 0 100 60"><rect width="100" height="60" fill="#0f1c33"/><path d="M30 20 L50 28 L70 20 L50 34 Z" fill="#38bdf8"/><circle cx="50" cy="18" r="3" fill="#ffffff"/><text x="50" y="48" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="10" fill="#ffffff" text-anchor="middle" letter-spacing="1">FAIRLINE</text></svg>`;
+      if (b.includes("princess")) return `<svg viewBox="0 0 100 60"><rect width="100" height="60" fill="#0f2b48"/><path d="M25 32 L32 18 L50 26 L68 18 L75 32 Z" fill="#ffffff"/><circle cx="32" cy="16" r="2" fill="#38bdf8"/><circle cx="50" cy="24" r="2" fill="#38bdf8"/><circle cx="68" cy="16" r="2" fill="#38bdf8"/><text x="50" y="48" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="9.5" fill="#ffffff" text-anchor="middle" letter-spacing="2">PRINCESS</text></svg>`;
+      if (b.includes("azimut")) return `<svg viewBox="0 0 100 60"><rect width="100" height="60" fill="#0a1120"/><circle cx="42" cy="22" r="7" fill="none" stroke="#ffffff" stroke-width="2.5"/><circle cx="58" cy="22" r="7" fill="none" stroke="#38bdf8" stroke-width="2.5"/><text x="50" y="48" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="11" fill="#ffffff" text-anchor="middle" letter-spacing="2">AZIMUT</text></svg>`;
+      if (b.includes("sanlorenzo")) return `<svg viewBox="0 0 100 60"><rect width="100" height="60" fill="#0f172a"/><text x="50" y="28" font-family="'Cinzel', serif" font-weight="700" font-size="9" fill="#ffffff" text-anchor="middle" letter-spacing="2">SANLORENZO</text><line x1="25" y1="36" x2="75" y2="36" stroke="#94a3b8" stroke-width="1.5"/><text x="50" y="47" font-family="'Plus Jakarta Sans', sans-serif" font-size="6" fill="#38bdf8" text-anchor="middle" letter-spacing="1">YACHTS</text></svg>`;
+      if (b.includes("wally")) return `<svg viewBox="0 0 100 60"><rect width="100" height="60" fill="#000000"/><text x="50" y="38" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="17" fill="#ffffff" text-anchor="middle" letter-spacing="2">wally</text><circle cx="82" cy="27" r="3" fill="#00d2ff"/></svg>`;
+      if (b.includes("axopar")) return `<svg viewBox="0 0 100 60"><rect width="100" height="60" fill="#000000"/><path d="M22 18 L78 42 M78 18 L22 42" stroke="#ffffff" stroke-width="3"/><rect x="42" y="24" width="16" height="12" fill="#000000"/><text x="50" y="34" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="8" fill="#38bdf8" text-anchor="middle">AXOPAR</text></svg>`;
+      if (b.includes("sea ray")) return `<svg viewBox="0 0 100 60"><rect width="100" height="60" fill="#0369a1"/><path d="M20 28 Q 35 15, 50 28 T 80 28" fill="none" stroke="#ffffff" stroke-width="3"/><path d="M20 36 Q 35 23, 50 36 T 80 36" fill="none" stroke="#bae6fd" stroke-width="2"/><text x="50" y="50" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="8" fill="#ffffff" text-anchor="middle" letter-spacing="1">SEA RAY</text></svg>`;
+      if (b.includes("whaler")) return `<svg viewBox="0 0 100 60"><rect width="100" height="60" fill="#1e3a5f"/><polygon points="50,12 60,32 40,32" fill="#dc2626"/><text x="50" y="44" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="8.5" fill="#ffffff" text-anchor="middle">BOSTON</text><text x="50" y="52" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="6.5" fill="#f87171" text-anchor="middle">WHALER</text></svg>`;
+
+      const initials = brandName.substring(0, 3).toUpperCase();
+      return `<svg viewBox="0 0 100 60"><rect width="100" height="60" fill="#0c1833"/><rect x="6" y="6" width="88" height="48" rx="6" fill="none" stroke="#38bdf8" stroke-width="1.2" stroke-dasharray="3,2"/><text x="50" y="32" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="${brandName.length > 9 ? '8.5' : '10.5'}" fill="#ffffff" text-anchor="middle" letter-spacing="1">${brandName.substring(0, 11).toUpperCase()}</text><text x="50" y="44" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="6.5" fill="#38bdf8" text-anchor="middle" letter-spacing="0.5">${initials} YACHT</text></svg>`;
+    }
+
+    const engineDatabase = {
+      "Volvo Penta D1-30": { title: "Volvo Penta D1-30", hp: "28 HP", cylinders: "Sıralı 3 Silindir", displacement: "1.130 cc", fuel: "Marin Dizel", aspiration: "Doğal Emişli", propulsion: "Şaft / Saildrive 130S", weight: "145 kg" },
+      "Volvo Penta D2-75": { title: "Volvo Penta D2-75", hp: "75 HP", cylinders: "Sıralı 4 Silindir", displacement: "2.200 cc", fuel: "Marin Dizel", aspiration: "Turboşarjlı", propulsion: "Şaft / Saildrive 150S", weight: "264 kg" },
+      "Volvo Penta D3-220": { title: "Volvo Penta D3-220", hp: "220 HP", cylinders: "Sıralı 5 Silindir", displacement: "2.400 cc", fuel: "Marin Dizel (Common Rail)", aspiration: "Değişken Geometrili Turbo (VNT)", propulsion: "Aquamatic Kuyruk / Şaft", weight: "301 kg" },
+      "Volvo Penta D4-300 / 320": { title: "Volvo Penta D4-320", hp: "320 HP", cylinders: "Sıralı 4 Silindir", displacement: "3.700 cc (3.7L)", fuel: "Marin Dizel", aspiration: "Kompresör + Turboşarj", propulsion: "DPI Kuyruk / Şaft", weight: "500 kg" },
+      "Volvo Penta D6-440": { title: "Volvo Penta D6-440", hp: "440 HP", cylinders: "Sıralı 6 Silindir", displacement: "5.500 cc (5.5L)", fuel: "Marin Dizel", aspiration: "Kompresör + Turboşarj", propulsion: "DPI Kuyruk / Şaft", weight: "790 kg" },
+      "Volvo Penta IPS 650 (D6)": { title: "Volvo Penta IPS 650", hp: "480 HP Krank (650 HP Efektif)", cylinders: "Sıralı 6 Silindir", displacement: "5.500 cc (5.5L)", fuel: "Marin Dizel", aspiration: "Kompresör + Turboşarj", propulsion: "IPS Pod Drive (Çift Pervane)", weight: "920 kg" },
+      "Volvo Penta IPS 800 (D8)": { title: "Volvo Penta IPS 800", hp: "600 HP Krank (800 HP Efektif)", cylinders: "Sıralı 6 Silindir", displacement: "7.700 cc (7.7L)", fuel: "Marin Dizel", aspiration: "Twin-Entry Turboşarj", propulsion: "IPS15 Pod Drive", weight: "1.410 kg" },
+      "Volvo Penta IPS 1050 (D11)": { title: "Volvo Penta IPS 1050", hp: "750 HP", cylinders: "Sıralı 6 Silindir", displacement: "10.800 cc (10.8L)", fuel: "Marin Dizel", aspiration: "Turboşarj & Intercooler", propulsion: "IPS20 Pod Drive", weight: "1.980 kg" },
+      "Volvo Penta IPS 1350 (D13)": { title: "Volvo Penta IPS 1350", hp: "1.000 HP (1.350 HP Efektif)", cylinders: "Sıralı 6 Silindir", displacement: "12.800 cc (12.8L)", fuel: "Marin Dizel", aspiration: "Çift Kademeli Turbo", propulsion: "IPS30 Pod Drive", weight: "2.300 kg" },
+      "Volvo Penta D16-850": { title: "Volvo Penta D16 MH", hp: "850 HP Ağır Hizmet", cylinders: "Sıralı 6 Silindir", displacement: "16.100 cc (16.1L)", fuel: "Marin Dizel", aspiration: "Turboşarjlı", propulsion: "Ağır Ticari Düz Şaft", weight: "1.750 kg" },
+
+      "MAN i6-730 / 800": { title: "MAN i6-800", hp: "800 HP", cylinders: "Sıralı 6 Silindir", displacement: "12.400 cc (12.4L)", fuel: "Marin Dizel", aspiration: "Wastegate Turbo & Intercooler", propulsion: "V-Drive / Düz Şaft", weight: "1.215 kg" },
+      "MAN V8-1000": { title: "MAN V8-1000", hp: "1.000 HP", cylinders: "V8 Silindir 90°", displacement: "16.200 cc (16.2L)", fuel: "Marin Dizel (Common Rail)", aspiration: "Çift Turboşarjlı", propulsion: "Şaft Tahrikli", weight: "1.780 kg" },
+      "MAN V8-1200": { title: "MAN V8-1200", hp: "1.200 HP", cylinders: "V8 Silindir 90°", displacement: "16.200 cc (16.2L)", fuel: "Marin Dizel", aspiration: "Çift Su Soğutmalı Turbo", propulsion: "Şaft Tahrikli", weight: "1.875 kg" },
+      "MAN V12-1400": { title: "MAN V12-1400", hp: "1.400 HP", cylinders: "V12 Silindir 90°", displacement: "24.200 cc (24.2L)", fuel: "Marin Dizel", aspiration: "Biturbo & Intercooler", propulsion: "Direkt Şaft", weight: "2.270 kg" },
+      "MAN V12-1900": { title: "MAN V12-1900", hp: "1.900 HP", cylinders: "V12 Silindir 90°", displacement: "24.200 cc (24.2L)", fuel: "Marin Dizel", aspiration: "İki Kademeli Biturbo", propulsion: "Şaft / Yüzey Tahrik (Arneson)", weight: "2.365 kg" },
+      "MAN V12-2000": { title: "MAN V12-2000 (Sektör Lideri)", hp: "2.000 HP", cylinders: "V12 Silindir 90°", displacement: "24.200 cc (24.2L)", fuel: "Marin Dizel", aspiration: "Biturbo Common Rail 2200 bar", propulsion: "Yüksek Hızlı Şaft", weight: "2.380 kg" },
+
+      "CAT C7.1": { title: "Caterpillar C7.1", hp: "500 HP", cylinders: "Sıralı 6 Silindir", displacement: "7.010 cc (7.0L)", fuel: "Marin Dizel", aspiration: "Turboşarjlı & Aftercooler", propulsion: "Düz Şaft", weight: "760 kg" },
+      "CAT C8.7": { title: "Caterpillar C8.7", hp: "650 HP", cylinders: "Sıralı 6 Silindir", displacement: "8.700 cc (8.7L)", fuel: "Marin Dizel", aspiration: "Süperşarj + Turbo", propulsion: "Şaft & Pod Drive", weight: "1.040 kg" },
+      "CAT C12.9": { title: "Caterpillar C12.9", hp: "1.000 HP", cylinders: "Sıralı 6 Silindir", displacement: "12.900 cc (12.9L)", fuel: "Marin Dizel", aspiration: "Çift Turboşarjlı", propulsion: "Ağır Hizmet Şaft", weight: "1.670 kg" },
+      "CAT C18 ACERT": { title: "Caterpillar C18 ACERT", hp: "1.150 HP", cylinders: "Sıralı 6 Silindir", displacement: "18.100 cc (18.1L)", fuel: "Marin Dizel", aspiration: "Turboşarjlı & Su Soğutmalı", propulsion: "Ağır Hizmet Düz Şaft", weight: "1.950 kg" },
+      "CAT C32 ACERT": { title: "Caterpillar C32 ACERT V12", hp: "1.925 HP", cylinders: "V12 Silindir", displacement: "32.100 cc (32.1L)", fuel: "Marin Dizel", aspiration: "Biturbo Su Soğutmalı", propulsion: "Mega Yat Şaft Sistemi", weight: "3.220 kg" },
+
+      "Scania DI09": { title: "Scania DI09 5-Silindir", hp: "400 HP", cylinders: "Sıralı 5 Silindir", displacement: "9.300 cc (9.3L)", fuel: "Marin Dizel", aspiration: "Turboşarj & Intercooler", propulsion: "Deplasman Şaftı", weight: "1.125 kg" },
+      "Scania DI13 092M": { title: "Scania DI13 550 Heavy Duty", hp: "550 HP", cylinders: "Sıralı 6 Silindir Trawler", displacement: "12.700 cc (12.7L)", fuel: "Marin Dizel", aspiration: "Turboşarj & Intercooler", propulsion: "Ağır Deplasman Şaft Sistemi", weight: "1.285 kg" },
+      "Scania DI13 093M": { title: "Scania DI13 900 Racing", hp: "900 HP", cylinders: "Sıralı 6 Silindir", displacement: "12.700 cc (12.7L)", fuel: "Marin Dizel (XPI)", aspiration: "Wastegate Turbo", propulsion: "Hızlı Şaft / Jet", weight: "1.285 kg" },
+      "Scania DI16 090M V8": { title: "Scania DI16 1150 V8", hp: "1.150 HP", cylinders: "V8 Silindir 90°", displacement: "16.400 cc (16.4L)", fuel: "Marin Dizel", aspiration: "Çift Turboşarjlı", propulsion: "Şaft Tahrikli", weight: "1.660 kg" },
+
+      "Cummins QSB 6.7": { title: "Cummins QSB 6.7", hp: "550 HP", cylinders: "Sıralı 6 Silindir", displacement: "6.700 cc (6.7L)", fuel: "Marin Dizel (Common Rail)", aspiration: "Turboşarj & Aftercooler", propulsion: "V-Drive / Şaft / Zeus Pod", weight: "658 kg" },
+      "Cummins QSC 8.3": { title: "Cummins QSC 8.3", hp: "600 HP", cylinders: "Sıralı 6 Silindir", displacement: "8.300 cc (8.3L)", fuel: "Marin Dizel", aspiration: "Turboşarj & Aftercooler", propulsion: "Şaft Tahrikli", weight: "896 kg" },
+      "Cummins QSM 11": { title: "Cummins QSM 11", hp: "715 HP", cylinders: "Sıralı 6 Silindir", displacement: "10.800 cc (10.8L)", fuel: "Marin Dizel", aspiration: "Turboşarj & Su Soğutmalı", propulsion: "Ağır Hizmet Şaft", weight: "1.188 kg" },
+      "Cummins QSK 19": { title: "Cummins QSK 19 Commercial", hp: "800 HP", cylinders: "Sıralı 6 Silindir Endüstriyel", displacement: "19.000 cc (19L)", fuel: "Marin Dizel", aspiration: "Ağır Ticari Turbo", propulsion: "Sürekli Görev Şaftı", weight: "2.180 kg" },
+
+      "Mercury 150 FourStroke": { title: "Mercury 150 FourStroke", hp: "150 HP", cylinders: "Sıralı 4 Silindir", displacement: "3.000 cc (3.0L)", fuel: "Benzin", aspiration: "Doğal Emişli EFI", propulsion: "Dıştan Takma", weight: "206 kg" },
+      "Mercury 200 / 225 V6": { title: "Mercury FourStroke V6", hp: "225 HP", cylinders: "V6 Silindir", displacement: "3.400 cc (3.4L)", fuel: "Benzin", aspiration: "Doğal Emişli", propulsion: "Dıştan Takma", weight: "216 kg" },
+      "Mercury Verado 250 / 300 V8": { title: "Mercury Verado 300 V8", hp: "300 HP", cylinders: "V8 Silindir 32V", displacement: "4.600 cc (4.6L)", fuel: "Benzin", aspiration: "Transient Spark EFI", propulsion: "Dıştan Takma AMS", weight: "272 kg" },
+      "Mercury Verado 350 / 400 V10": { title: "Mercury Verado 400 V10", hp: "400 HP", cylinders: "V10 Silindir", displacement: "5.700 cc (5.7L)", fuel: "Benzin", aspiration: "Doğal Emişli DOHC", propulsion: "Dıştan Takma Entegre Direksiyon", weight: "316 kg" },
+      "Mercury Verado 600 V12": { title: "Mercury Verado 600 V12 (Amiral)", hp: "600 HP", cylinders: "V12 Silindir", displacement: "7.600 cc (7.6L)", fuel: "Benzin", aspiration: "Dört Kamlı / DOHC 48V", propulsion: "2 Vitesli Dönen Kuyruk Sistemi", weight: "572 kg" },
+      "Mercury Racing 450R / 500R": { title: "Mercury Racing 500R", hp: "500 HP Yarış Motoru", cylinders: "V8 Silindir", displacement: "4.600 cc", fuel: "Yüksek Oktan Benzin", aspiration: "Süperşarjlı (Kompresör)", propulsion: "Yarış Kuyruğu Sport Master", weight: "326 kg" },
+
+      "Yamaha F115 / F150": { title: "Yamaha F150", hp: "150 HP", cylinders: "Sıralı 4 Silindir", displacement: "2.670 cc (2.7L)", fuel: "Benzin", aspiration: "DOHC 16-Sübap EFI", propulsion: "Dıştan Takma", weight: "222 kg" },
+      "Yamaha F200 / F225": { title: "Yamaha F200", hp: "200 HP", cylinders: "Sıralı 4 Silindir", displacement: "2.785 cc (2.8L)", fuel: "Benzin", aspiration: "Değişken Eksantrik (VCT)", propulsion: "Dıştan Takma", weight: "226 kg" },
+      "Yamaha F250 / F300 V6 Offshore": { title: "Yamaha F300 V6 Offshore", hp: "300 HP", cylinders: "V6 Silindir 60° 24V", displacement: "4.200 cc (4.2L)", fuel: "Benzin", aspiration: "Çok Noktalı Enjeksiyon (EFI)", propulsion: "Dıştan Takma Helm Master", weight: "260 kg" },
+      "Yamaha XTO 425 V8": { title: "Yamaha XTO 425 Offshore", hp: "425 HP", cylinders: "V8 Silindir 32V", displacement: "5.600 cc (5.6L)", fuel: "Benzin", aspiration: "Direkt Püskürtme DOHC", propulsion: "Entegre Elektrikli Dümen", weight: "442 kg" },
+      "Yamaha XTO 450 V8 Offshore": { title: "Yamaha XTO 450 V8 (Amiral)", hp: "450 HP", cylinders: "V8 Silindir", displacement: "5.600 cc (5.6L)", fuel: "Benzin", aspiration: "Yüksek Basınç Direkt Enjeksiyon", propulsion: "Dıştan Takma Ağır Hizmet İtki", weight: "450 kg" }
+    };
+
+    let activeSelectedEngine = "";
+
+    const rawBrands = [
+      { name: "Absolute Yachts", url: "https://www.absoluteyachts.com", country: "İtalya", series: [{ name: "Navetta & Fly", models: ["45 Navetta", "52 Navetta", "58 Navetta", "47 Fly", "52 Fly", "60 Fly"] }] },
+      { name: "Ada Yatçılık", url: "https://adayacht.com", country: "Türkiye", series: [{ name: "Ahşap & Sac Trawler", models: ["Ada 18M", "Ada 24M", "Ada 30M"] }] },
+      { name: "Alen Yacht", url: "https://alenyacht.com", country: "Türkiye", series: [{ name: "Alen Serisi", models: ["Alen 45", "Alen 55", "Alen 68"] }] },
+      { name: "Alfastreet Marine", url: "https://alfastreet-marine.com", country: "Slovenya", series: [{ name: "Hydraulic Hardtop", models: ["18 Open", "21 Open", "25 Cabin", "28 Cabin"] }] },
+      { name: "Amer Yachts", url: "https://www.ameryachts.it", country: "İtalya", series: [{ name: "Superyachts", models: ["Amer 94", "Amer 100", "Amer 120"] }] },
+      { name: "Angel Yachts", url: "https://www.angelyachts.com", country: "Türkiye", series: [{ name: "Lobster & Baby", models: ["Angel Baby", "Angel Lobster 15", "Angel Giant"] }] },
+      { name: "Anka Tekne", url: "https://ankatekne.com", country: "Türkiye", series: [{ name: "Fiber Cruiser", models: ["Anka 5.50", "Anka 6.80", "Anka 8.50"] }] },
+      { name: "Antares (Bénéteau)", url: "https://www.beneteau.com", country: "Fransa", series: [{ name: "Weekender", models: ["Antares 7", "Antares 8", "Antares 9", "Antares 11", "Antares 12"] }] },
+      { name: "Apreamare", url: "https://www.apreamare.it", country: "İtalya", series: [{ name: "Gozzo & Maestro", models: ["Gozzo 35", "Gozzo 45", "Maestro 56", "Maestro 65"] }] },
+      { name: "Aquila Power Catamarans", url: "https://www.aquilaboats.com", country: "Çin / ABD", series: [{ name: "Power Cat", models: ["Aquila 28", "Aquila 32", "Aquila 36", "Aquila 44", "Aquila 54"] }] },
+      { name: "Arcadia Yachts", url: "https://www.arcadiayachts.it", country: "İtalya", series: [{ name: "Sherpa & A-Line", models: ["Sherpa 60", "Sherpa 80", "A85", "A105"] }] },
+      { name: "Astondoa", url: "https://astondoa.com", country: "İspanya", series: [{ name: "Flybridge & AS", models: ["377 Coupe", "AS5", "AS8", "66 Flybridge"] }] },
+      { name: "Axopar", url: "https://www.axopar.com", country: "Finlandiya", series: [{ name: "Cross Cabin & Sun-Top", models: ["Axopar 28 (T-Top/Cabin)", "Axopar 37 (Sun-Top/XC)", "Axopar 45"] }] },
+      { name: "Azimut Yachts", url: "https://www.azimutyachts.com", country: "İtalya", series: [
+        { name: "Atlantis (Sport)", models: ["34", "43", "45", "47", "51", "55"] },
+        { name: "Flybridge", models: ["39 Fly", "43 Fly", "46", "50", "53", "55", "58", "62", "64", "66", "72", "80"] },
+        { name: "S Serisi (Coupe)", models: ["55S", "68S", "77S", "S6", "S7", "S8"] },
+        { name: "Magellano (Trawler)", models: ["43", "53", "60", "66"] }
+      ]},
+      { name: "Baglietto", url: "https://www.baglietto.com", country: "İtalya", series: [{ name: "DOM & T-Line", models: ["DOM 133", "T52", "FAST 43"] }] },
+      { name: "Bavaria Yachts", url: "https://www.bavariayachts.com", country: "Almanya", series: [{ name: "Sport & SR Serisi", models: ["29 Sport", "32 Sport", "35 Sport", "37 Sport", "SR36", "SR41", "Virtess 420"] }] },
+      { name: "Bayliner", url: "https://www.bayliner.com", country: "ABD", series: [{ name: "Ciera / Discovery", models: ["245", "265", "2855", "3055", "3255"] }] },
+      { name: "Benetti", url: "https://www.benettiyachts.it", country: "İtalya", series: [{ name: "Class & B.Now", models: ["Delfino 95", "Mediterraneo 116", "Oasis 40M", "B.Now 50M"] }] },
+      { name: "Bénéteau", url: "https://www.beneteau.com", country: "Fransa", series: [
+        { name: "Gran Turismo (GT)", models: ["GT 32", "GT 36", "GT 40", "GT 41", "GT 46", "GT 50"] },
+        { name: "Swift Trawler", models: ["30", "34", "35", "41", "44", "47", "50"] }
+      ]},
+      { name: "Bertram", url: "https://www.bertram.com", country: "ABD", series: [{ name: "Moppie & Flybridge", models: ["Bertram 28", "Bertram 31", "Bertram 35", "Bertram 50", "Bertram 61"] }] },
+      { name: "Bilgin Yachts", url: "https://bilginyacht.com", country: "Türkiye", series: [{ name: "Bilgin Custom", models: ["Tatiana 80M", "Bilgin 163", "Bilgin 263", "Leona 80M"] }] },
+      { name: "Bluegame", url: "https://bluegame.it", country: "İtalya", series: [{ name: "BG & BGX", models: ["BG42", "BG54", "BG72", "BGX60", "BGX70"] }] },
+      { name: "Boston Whaler", url: "https://www.bostonwhaler.com", country: "ABD", series: [{ name: "Conquest & Outrage", models: ["285 Conquest", "325 Conquest", "345 Conquest", "420 Outrage"] }] },
+      { name: "Brabus Marine", url: "https://www.brabusmarine.com", country: "Almanya", series: [{ name: "Shadow Serisi", models: ["Shadow 500", "Shadow 900", "Shadow 1000"] }] },
+      { name: "Brig Boats", url: "https://brigboats.com", country: "Ukrayna", series: [{ name: "Eagle Serisi", models: ["Eagle 6.7", "Eagle 8", "Eagle 10"] }] },
+      { name: "Canados", url: "https://www.canados.com", country: "İtalya", series: [{ name: "Gladiator & Oceanic", models: ["Gladiator 411", "Gladiator 631", "Oceanic 76", "Canados 88"] }] },
+      { name: "Cantieri di Pisa", url: "https://www.cantieridipisa.com", country: "İtalya", series: [{ name: "Akhir Serisi", models: ["Akhir 85", "Akhir 108", "Akhir 118"] }] },
+      { name: "Capelli", url: "https://www.cantiericapelli.com", country: "İtalya", series: [{ name: "Tempest RIB", models: ["Tempest 38", "Tempest 40", "Tempest 44", "Tempest 50"] }] },
+      { name: "Carnevali", url: "https://www.carnevaliyachts.com", country: "İtalya", series: [{ name: "Flybridge", models: ["Carnevali 130", "Carnevali 145", "Carnevali 160"] }] },
+      { name: "Carniti", url: "https://www.carnitimotors.com", country: "İtalya", series: [{ name: "Klasik Cruiser", models: ["Carniti 24", "Carniti 30"] }] },
+      { name: "Carver Yachts", url: "https://www.carveryachts.com", country: "ABD", series: [{ name: "Voyager & C Serisi", models: ["C34", "C37", "C40", "C52 Coupe", "444 Aft Cabin"] }] },
+      { name: "CCN (Cerri)", url: "https://www.cerricantierinavali.it", country: "İtalya", series: [{ name: "FlyingSport", models: ["Cerri 86", "Cerri 102 FlyingSport"] }] },
+      { name: "Chaparral", url: "https://www.chaparralboats.com", country: "ABD", series: [{ name: "Signature", models: ["250", "270", "280", "290", "310", "330", "350"] }] },
+      { name: "Chris-Craft", url: "https://www.chriscraft.com", country: "ABD", series: [{ name: "Corsair & Launch", models: ["Corsair 28", "Launch 32", "Launch 36", "Catalina 30"] }] },
+      { name: "Cobalt Boats", url: "https://cobaltboats.com", country: "ABD", series: [{ name: "R & A Serisi", models: ["R30", "R35", "A36", "A40"] }] },
+      { name: "Cobra Yacht", url: "https://www.cobrayacht.com", country: "Türkiye", series: [{ name: "Custom Trawler & Yat", models: ["Cobra King 38M", "Infinity 46M", "Maestro 24M"] }] },
+      { name: "Cranchi", url: "https://www.cranchi.com", country: "İtalya", series: [{ name: "Cruiser & Hardtop", models: ["E26", "CSL 27", "Z35", "Endurance 30", "M44 HT", "50 Mediterranee", "Settantotto 78"] }] },
+      { name: "Crownline", url: "https://crownline.com", country: "ABD", series: [{ name: "CR Cruiser", models: ["250 CR", "270 CR", "315 CR", "335 SS"] }] },
+      { name: "Cruisers Yachts", url: "https://www.cruisersyachts.com", country: "ABD", series: [{ name: "Cantius & Express", models: ["338 Bowrider", "390 Express", "42 Cantius", "50 Cantius", "60 Cantius"] }] },
+      { name: "Custom Line", url: "https://www.customline-yacht.com", country: "İtalya", series: [{ name: "Navetta & Planante", models: ["Navetta 30", "Navetta 33", "Navetta 37", "Custom Line 106", "Custom Line 140"] }] },
+      { name: "Delta Powerboats", url: "https://deltapowerboats.se", country: "İsveç", series: [{ name: "Carbon Serisi", models: ["26 Open", "33 Coupé", "54 Carbon", "60 Open", "88 Carbon"] }] },
+      { name: "Derya Tekne", url: "https://www.deryatekne.com", country: "Türkiye", series: [{ name: "Balıkçı & Gezi", models: ["Derya 4.80", "Derya 5.80", "Derya 7.50"] }] },
+      { name: "Dominator Yachts", url: "https://www.dominatoryachts.com", country: "İtalya / Avusturya", series: [{ name: "Ilumen", models: ["680", "720", "780", "Ilumen 28M"] }] },
+      { name: "Doral", url: "https://www.doralboats.com", country: "Kanada", series: [{ name: "Cruiser", models: ["Monticello", "Intrigue", "Boca Grande", "Alegria"] }] },
+      { name: "Dromeas Yachts", url: "https://dromeasyachts.com", country: "Türkiye", series: [{ name: "Center Console & SUV", models: ["D28 WA", "D28 CC", "D33 SUV"] }] },
+      { name: "Eligor Tekne", url: "https://eligortekne.com", country: "Türkiye", series: [{ name: "Kabinli Motoryat", models: ["Eligor 28", "Eligor 32"] }] },
+      { name: "Enma Marine", url: "https://www.enmamarine.com", country: "Türkiye", series: [{ name: "Sport Cruiser", models: ["Barracuda 590", "Enma 700", "Enma 850 Sundeck"] }] },
+      { name: "Evo Yachts", url: "https://www.evoyachts.com", country: "İtalya", series: [{ name: "R & V Serisi", models: ["Evo R4", "Evo R6", "Evo V8"] }] },
+      { name: "Fairline", url: "https://www.fairline.com", country: "İngiltere", series: [
+        { name: "Targa", models: ["27", "33", "38", "40", "43", "44", "45 OPEN/GT", "48", "50", "62", "65 GT"] },
+        { name: "Squadron", models: ["42", "50", "53", "55", "58", "65", "68", "74"] },
+        { name: "Phantom", models: ["38", "40", "46", "65"] }
+      ]},
+      { name: "Falcon Yachts", url: "https://www.falconyachts.it", country: "İtalya", series: [{ name: "Flybridge", models: ["Falcon 76", "Falcon 86", "Falcon 90", "Falcon 100"] }] },
+      { name: "Feadship", url: "https://www.feadship.nl", country: "Hollanda", series: [{ name: "Custom Superyachts", models: ["Vanish 66M", "Savannah 83M", "Zen 88M", "Lonian 87M"] }] },
+      { name: "Ferretti Yachts", url: "https://www.ferretti-yachts.com", country: "İtalya", series: [{ name: "Flybridge", models: ["430", "450", "500", "530", "550", "592", "620", "670", "720", "780", "850"] }] },
+      { name: "Fiart", url: "https://fiart.com", country: "İtalya", series: [{ name: "Seawalker Serisi", models: ["35 Seawalker", "39 Seawalker", "43 Seawalker"] }] },
+      { name: "Fjord Yachts", url: "https://www.hanseyachtsag.com/fjord", country: "Almanya", series: [{ name: "Open Serisi", models: ["38 Open", "41 XL", "44 Open", "53 XL"] }] },
+      { name: "Formula Boats", url: "https://www.formulaboats.com", country: "ABD", series: [{ name: "FAS3TECH & SSC", models: ["330 CBR", "380 SSC", "430 SSC", "500 SSC"] }] },
+      { name: "Four Winns", url: "https://www.fourwinns.com", country: "ABD", series: [{ name: "Vista Serisi", models: ["V255", "V275", "V288", "V318", "V358", "V375"] }] },
+      { name: "Franchini", url: "https://www.franchiniyachts.com", country: "İtalya", series: [{ name: "Mia & Custom", models: ["Mia 63", "Custom 55"] }] },
+      { name: "Galeon", url: "https://galeon.pl", country: "Polonya", series: [{ name: "Fly & HTS Serisi", models: ["325 GTO", "380 FLY", "400 FLY", "420 FLY", "425 HTS", "460 FLY", "500 FLY", "640 FLY"] }] },
+      { name: "Gianetti", url: "https://www.gianettiyacht.com", country: "İtalya", series: [{ name: "Navetta & Star", models: ["Gianetti 48", "Gianetti 68", "Navetta 24"] }] },
+      { name: "Gobbi", url: "https://www.azimutyachts.com", country: "İtalya", series: [{ name: "Atlantis Öncesi", models: ["Gobbi 315 SC", "Gobbi 345 SC", "Gobbi 375 SC", "Gobbi 425 SC"] }] },
+      { name: "Grady-White", url: "https://www.gradywhite.com", country: "ABD", series: [{ name: "Canyon & Express", models: ["Canyon 336", "Canyon 456", "Express 330", "Express 370"] }] },
+      { name: "Grand Banks", url: "https://www.grandbanks.com", country: "ABD / Singapur", series: [{ name: "Heritage & Eastbay", models: ["GB 42", "GB 54", "Eastbay 44", "Eastbay 60"] }] },
+      { name: "Greenline Yachts", url: "https://greenlinehybrid.com", country: "Slovenya", series: [{ name: "Solar Hybrid", models: ["Greenline 39", "Greenline 40", "Greenline 45", "Greenline 48"] }] },
+      { name: "Hardanger Trawler", url: "https://www.hardanger-yachting.com", country: "Türkiye / Norveç", series: [{ name: "Sac Trawler", models: ["Hardanger 15M", "Hardanger 18M"] }] },
+      { name: "Hatteras", url: "https://www.hatterasyachts.com", country: "ABD", series: [{ name: "Convertible & Motor Yacht", models: ["GT45X", "GT54", "GT70", "M75 Panacera"] }] },
+      { name: "Heesen Yachts", url: "https://www.heesenyachts.com", country: "Hollanda", series: [{ name: "Fast & Steel", models: ["47M Steel", "50M Aluminium", "55M Steel", "60M Fast"] }] },
+      { name: "Highfield Boats", url: "https://www.highfieldboats.com", country: "Avustralya / Çin", series: [{ name: "Patrol & Sport", models: ["Sport 650", "Sport 760", "Sport 800", "Patrol 860"] }] },
+      { name: "Horizon Yachts", url: "https://www.horizonyacht.com", country: "Tayvan", series: [{ name: "FD & E Serisi", models: ["FD75", "FD80", "FD90", "E88"] }] },
+      { name: "Invictus Yacht", url: "https://www.invictusyacht.com", country: "İtalya", series: [{ name: "TT & GT", models: ["TT280", "TT460", "GT320", "GT370"] }] },
+      { name: "Isatek Tekne", url: "https://www.isatektekne.com", country: "Türkiye", series: [{ name: "Gezi & Balıkçı", models: ["Isatek 4.90", "Isatek 6.00", "Smyrna 7.50"] }] },
+      { name: "Itama", url: "https://www.itama-yacht.com", country: "İtalya", series: [{ name: "Open Safkan", models: ["Itama 45S", "Itama 62RS", "Itama 75"] }] },
+      { name: "Jeanneau", url: "https://www.jeanneau.com", country: "Fransa", series: [
+        { name: "Leader", models: ["Leader 8", "30", "33", "36", "40", "46"] },
+        { name: "Merry Fisher", models: ["795", "895", "1095", "1295 Fly"] },
+        { name: "Cap Camarat & NC", models: ["NC 9", "NC 11", "NC 14", "Cap Camarat 10.5 WA"] }
+      ]},
+      { name: "Joker Boat", url: "https://www.jokerboat.it", country: "İtalya", series: [{ name: "Clubman", models: ["Clubman 28", "Clubman 30", "Clubman 35"] }] },
+      { name: "Kargı Trawler", url: "https://kargiyatcilik.com", country: "Türkiye", series: [{ name: "Geleneksel Sac/Ahşap", models: ["Kargı 16M", "Kargı 20M", "Kargı 24M"] }] },
+      { name: "Karnic Powerboats", url: "https://karnicboats.com", country: "Kıbrıs", series: [{ name: "Cruiser & Open", models: ["SL601", "SL651", "SL800"] }] },
+      { name: "Larson Boats", url: "https://www.larsonboats.com", country: "ABD", series: [{ name: "Cabrio Cruiser", models: ["Cabrio 240", "Cabrio 274", "Cabrio 310", "Cabrio 330"] }] },
+      { name: "Lekker Boats", url: "https://lekkerboats.com", country: "Hollanda / Avustralya", series: [{ name: "Damsko Serisi", models: ["Damsko 750", "Damsko 1000"] }] },
+      { name: "Liman Tekne", url: "https://www.limantekne.com", country: "Türkiye", series: [{ name: "Ahşap & Fiber", models: ["Liman 6.50", "Liman 8.20"] }] },
+      { name: "Linssen Yachts", url: "https://www.linssenyachts.com", country: "Hollanda", series: [{ name: "Grand Sturdy", models: ["35.0 AC", "40.0 AC", "45.0 AC", "500 AC"] }] },
+      { name: "Lürssen", url: "https://www.luerssen.com", country: "Almanya", series: [{ name: "Mega Yachts", models: ["Azzam 180M", "Dilbar 156M", "Nord 142M", "Scheherazade 140M"] }] },
+      { name: "Magazzu", url: "https://www.magazzu.com", country: "İtalya", series: [{ name: "MX Serisi", models: ["MX-11", "MX-13", "MX-14 Classic"] }] },
+      { name: "Maiora", url: "https://maiora.it", country: "İtalya", series: [{ name: "Exuma & Classic", models: ["Maiora 24S", "Maiora 30 Walkaround", "Exuma 35"] }] },
+      { name: "Mano Marine", url: "https://www.manomarine.com", country: "İtalya", series: [{ name: "Cruiser", models: ["Mano 22.50", "Mano 24.50", "Mano 28.50", "Mano 32.50"] }] },
+      { name: "Mangusta", url: "https://www.mangustayachts.com", country: "İtalya", series: [{ name: "Maxi Open & Oceano", models: ["Mangusta 72", "Mangusta 92", "Mangusta 108", "Oceano 44", "GranSport 54"] }] },
+      { name: "Maral Marin", url: "https://www.maralmarin.com", country: "Türkiye", series: [{ name: "Fisherman", models: ["Maral 5.80", "Maral 7.20"] }] },
+      { name: "Mar-Co Marine", url: "https://www.mar-co.com", country: "İtalya", series: [{ name: "Emotion RIB", models: ["Emotion 32", "Emotion 36"] }] },
+      { name: "Maxum", url: "https://www.maxumboats.com", country: "ABD", series: [{ name: "SCR Serisi", models: ["2400 SCR", "2700 SCR", "3000 SCR", "3300 SCR"] }] },
+      { name: "Mazu Yachts", url: "https://mazuyachts.com", country: "Türkiye", series: [{ name: "Hardtop & Alpha", models: ["38 ST", "42 Alpha", "52", "82", "92 DS"] }] },
+      { name: "Mengi Yay", url: "https://mengiyay.com", country: "Türkiye", series: [{ name: "Virtus Serisi", models: ["Virtus 44M", "Virtus 47M", "Seaspan 40M", "Aquarius 45M"] }] },
+      { name: "Moonday Yachts", url: "https://www.moonday.com.tr", country: "Türkiye", series: [{ name: "Retro & Sloop", models: ["Moonday 21", "Moonday 27", "Moonday 31 Bosphorus"] }] },
+      { name: "Monterey", url: "https://www.montereyboats.com", country: "ABD", series: [{ name: "Sport Yacht", models: ["270 CR", "290 CR", "320 CR", "335 SY", "355 SY"] }] },
+      { name: "Moonen Yachts", url: "https://www.moonen.com", country: "Hollanda", series: [{ name: "Explorer", models: ["Moonen 110", "Moonen 122 Martinique"] }] },
+      { name: "Mursan", url: "https://www.mursan.com.tr", country: "Türkiye", series: [{ name: "Fiber Cruiser", models: ["Mursan 24", "Mursan 28", "Mursan 32"] }] },
+      { name: "Nimbus", url: "https://nimbus.se", country: "İsveç", series: [{ name: "Weekender & Coupé", models: ["Weekender W9", "Tender T11", "Commuter C9", "365 Coupé", "405 Coupé"] }] },
+      { name: "Nobiskrug", url: "https://www.nobiskrug.com", country: "Almanya", series: [{ name: "Mega Yat", models: ["Sailing Yacht A", "Artefact 80M"] }] },
+      { name: "Nordhavn", url: "https://nordhavn.com", country: "ABD", series: [{ name: "Okyanus Trawler", models: ["N41", "N51", "N60", "N80"] }] },
+      { name: "Northstar Boats", url: "https://www.northstarboats.com", country: "Türkiye", series: [{ name: "Orion & Axis", models: ["Orion 6", "Orion 8", "Ion 10.5", "Axis 3.8"] }] },
+      { name: "Numarine", url: "https://numarine.com", country: "Türkiye", series: [{ name: "Flybridge & Explorer (XP)", models: ["52 Fly", "55 HT", "62 Fly", "68 Fly", "78 HT/Fly", "22XP", "26XP", "32XP", "37XP", "40XP"] }] },
+      { name: "Oceanco", url: "https://www.oceancoyacht.com", country: "Hollanda", series: [{ name: "Giga Yacht", models: ["Black Pearl 106M", "Koru 125M", "Bravo Eugenia 109M"] }] },
+      { name: "Ocean Alexander", url: "https://oceanalexander.com", country: "Tayvan / ABD", series: [{ name: "Revolution & Legend", models: ["28R", "32L", "35R"] }] },
+      { name: "Otam", url: "https://www.otam.it", country: "İtalya", series: [{ name: "Millennium", models: ["Otam 58 GTS", "Otam 65 HT", "Otam 80", "Otam 85 GTS"] }] },
+      { name: "Özel Yapım Sac/Ahşap", url: "https://www.sahibinden.com/motoryat", country: "Türkiye", series: [{ name: "Bodrum/Tuzla İmalat", models: ["Bodrum Guleti", "Karadeniz Takası", "Tuzla Sac Trawler", "Marmaris Tirhandil"] }] },
+      { name: "Pardo Yachts", url: "https://www.pardoyachts.com", country: "İtalya", series: [{ name: "Walkaround & GT", models: ["Pardo 38", "Pardo 43", "Pardo 50", "GT52", "Endurance 60"] }] },
+      { name: "Pearl Yachts", url: "https://www.pearlyachts.com", country: "İngiltere", series: [{ name: "Flybridge", models: ["Pearl 62", "Pearl 72", "Pearl 82", "Pearl 95"] }] },
+      { name: "Pershing", url: "https://www.pershing-yacht.com", country: "İtalya", series: [{ name: "Sportif Performans", models: ["43", "46", "50", "52", "54", "5X", "6X", "72", "8X", "9X"] }] },
+      { name: "Poseidon Boats", url: "https://www.poseidonboats.com.gr", country: "Yunanistan", series: [{ name: "Ranieri & Gezi", models: ["Blu Water 170", "King Fisher 570"] }] },
+      { name: "Prestige Yachts", url: "https://www.prestige-yachts.com", country: "Fransa", series: [{ name: "Flybridge & M Serisi", models: ["32 Fly", "36 Fly", "420", "460", "500", "520", "590", "630", "M48"] }] },
+      { name: "Princess Yachts", url: "https://www.princessyachts.com", country: "İngiltere", series: [
+        { name: "V Serisi (Spor)", models: ["V39", "V40", "V42", "V45", "V48", "V50", "V52", "V55", "V58", "V65"] },
+        { name: "Flybridge (F / P)", models: ["42", "45", "50", "54", "56", "60", "62", "64", "F45", "F50", "F55", "F65"] },
+        { name: "Y & S Serisi", models: ["S62", "S66", "Y72", "Y85"] }
+      ]},
+      { name: "Quicksilver Boats", url: "https://www.quicksilver-boats.com", country: "ABD / Polonya", series: [{ name: "Activ Serisi", models: ["Activ 605", "Activ 755 Weekend", "Activ 805 Cruiser", "Activ 905"] }] },
+      { name: "Ranieri International", url: "https://www.ranieri-international.com", country: "İtalya", series: [{ name: "Next & Voyager", models: ["Next 240", "Next 285", "Next 330 LX", "Cayman 38"] }] },
+      { name: "Regal", url: "https://www.regalboats.com", country: "ABD", series: [{ name: "Commodore & Express", models: ["2660", "2860", "3260", "35 Sport Coupe", "42 Fly"] }] },
+      { name: "Rinker", url: "https://www.rinkerboats.com", country: "ABD", series: [{ name: "Fiesta Vee", models: ["270 FV", "290 FV", "320 FV", "342 FV", "370 Express"] }] },
+      { name: "Riva", url: "https://www.riva-yacht.com", country: "İtalya", series: [{ name: "Klasik & Modern", models: ["Aquariva Super", "Rivamare", "Dolceriva", "56' Rivale", "66' Ribelle", "76' Perseo"] }] },
+      { name: "Rodman", url: "https://www.rodman.es", country: "İspanya", series: [{ name: "Muse & Spirit", models: ["Spirit 31", "Rodman 41", "Rodman 44", "Muse 54"] }] },
+      { name: "Rota Prenses", url: "https://www.rotaprenses.com", country: "Türkiye", series: [{ name: "Klasik Balıkçı & Gezi", models: ["Rota 5.75", "Rota 6.60", "Rota Prenses 7.20", "Rota Fisher"] }] },
+      { name: "Safter Marina", url: "https://www.safter.com.tr", country: "Türkiye", series: [{ name: "Kabinli & Gezi", models: ["Safter 4.50", "Safter 5.00", "Safter 6.30", "Safter 6.80 Kabinli", "Safter 8.50"] }] },
+      { name: "Sanlorenzo", url: "https://www.sanlorenzoyacht.com", country: "İtalya", series: [{ name: "SL / SD / SX", models: ["SL78", "SL86", "SL96", "SD96", "SD118", "SX76", "SX88"] }] },
+      { name: "Saxdor Yachts", url: "https://www.saxdoryachts.com", country: "Finlandiya", series: [{ name: "Sport & GTO", models: ["200 Sport", "270 GTO", "320 GTO", "400 GTO"] }] },
+      { name: "Sciallino", url: "https://www.sciallino.net", country: "İtalya", series: [{ name: "Gozzo Ligure", models: ["Sciallino 25", "Sciallino 34", "Sciallino 40"] }] },
+      { name: "Sea Ray", url: "https://www.searay.com", country: "ABD", series: [
+        { name: "Sundancer (Cruiser)", models: ["240", "260", "280", "310", "320", "350", "370", "400", "450", "510"] },
+        { name: "SLX & SDX", models: ["SLX 260", "SLX 310", "SLX 400"] }
+      ]},
+      { name: "Sealine", url: "https://www.hanseyachtsag.com/sealine", country: "İngiltere", series: [{ name: "F, S ve C Serisi", models: ["S330", "C330", "C390", "S430", "F430", "F530"] }] },
+      { name: "Sessa Marine", url: "https://www.sessamarine.com", country: "İtalya", series: [{ name: "Cruiser & Key Largo", models: ["C35", "C38", "C42", "C48", "Key Largo 27", "Oyster 35"] }] },
+      { name: "Sirena Yachts", url: "https://www.sirenayachts.com", country: "Türkiye", series: [{ name: "Motor Yacht Serisi", models: ["Sirena 48", "Sirena 58", "Sirena 68", "Sirena 78", "Sirena 88"] }] },
+      { name: "Solaris Power", url: "https://www.solarispower.com", country: "İtalya", series: [{ name: "Lobster & Open", models: ["40 Open", "44 Open", "48 Lobster", "52 Open"] }] },
+      { name: "Sunseeker", url: "https://www.sunseeker.com", country: "İngiltere", series: [
+        { name: "Predator", models: ["50", "55", "60", "62", "68", "72", "74", "82"] },
+        { name: "Manhattan", models: ["48", "50", "52", "55", "60", "63", "66", "68", "73"] },
+        { name: "Camargue & Portofino", models: ["Camargue 44", "Camargue 50", "Portofino 35", "Portofino 47"] }
+      ]},
+      { name: "Targa (Botnia)", url: "https://www.targa.fi", country: "Finlandiya", series: [{ name: "4x4 Offshore", models: ["Targa 27.2", "Targa 32", "Targa 37", "Targa 44", "Targa 46"] }] },
+      { name: "Tecnomar", url: "https://tecnomar.com", country: "İtalya", series: [{ name: "Lamborghini 63 & EVO", models: ["Tecnomar for Lamborghini 63", "EVO 120"] }] },
+      { name: "Tiara Yachts", url: "https://www.tiarayachts.com", country: "ABD", series: [{ name: "Open & Coupe", models: ["3100 Open", "3600 Open", "39 Coupe", "44 Coupe"] }] },
+      { name: "Turquoise Yachts", url: "https://www.turquoiseyachts.com", country: "Türkiye", series: [{ name: "Custom Explorer", models: ["Blue II 56M", "GO 77M", "Roe 74M", "Infinite Jest 75M"] }] },
+      { name: "Uniesse Marine", url: "https://www.uniesse.com", country: "İtalya / ABD", series: [{ name: "Open & Fly", models: ["Uniesse 42", "Uniesse 48", "Uniesse 55", "Uniesse 72"] }] },
+      { name: "Vicem Yachts", url: "https://vicemyachts.com", country: "Türkiye", series: [{ name: "Classic & Cruiser", models: ["50 Classic", "58 Classic", "65 Bahama Bay", "77 Classic", "82 Cruiser", "97 Cruiser"] }] },
+      { name: "Viking Yachts", url: "https://www.vikingyachts.com", country: "ABD", series: [{ name: "Sportfish Convertible", models: ["38 Billfish", "48 Convertible", "54 Convertible", "68 Convertible", "80 Convertible"] }] },
+      { name: "Wally", url: "https://www.wally.com", country: "İtalya / Monako", series: [{ name: "Wallytender & WHY", models: ["43wallytender", "48wallytender", "58wallytender", "WHY150", "WHY200"] }] },
+      { name: "Wellcraft", url: "https://www.wellcraft.com", country: "ABD", series: [{ name: "Commuter & Fisherman", models: ["355 Commuter", "435", "262 Fisherman"] }] },
+      { name: "Williams Jet Tenders", url: "https://www.williamsjettenders.com", country: "İngiltere", series: [{ name: "Turbojet & Sportjet", models: ["Turbojet 285", "Sportjet 345", "Sportjet 435"] }] },
+      { name: "Windy Boats", url: "https://www.windyboats.com", country: "Norveç", series: [{ name: "Sport Cruiser", models: ["29 Coho", "37 Shamal", "39 Camira", "SR44 Blackhawk"] }] },
+      { name: "XO Boats", url: "https://www.xoboats.com", country: "Finlandiya", series: [{ name: "Aluminium Explorer", models: ["DFNDR 9", "EXPLR 9", "EXPLR 10+", "EXPLR 44"] }] },
+      { name: "Yerliyurt Marina", url: "https://www.yerliyurtmarina.com", country: "Türkiye", series: [{ name: "Fiber Gezi & Balıkçı", models: ["Marin 4.50", "Marin 4.80", "Yerliyurt 6.60 Kabinli"] }] },
+      { name: "Zodiac Nautic", url: "https://www.zodiac-nautic.com", country: "Fransa", series: [{ name: "Medline & Pro", models: ["Medline 6.8", "Medline 7.5", "Pro 850"] }] }
+    ];
+
+    rawBrands.forEach(b => {
+      b.logo = getBrandVectorLogo(b.name);
+      b.flag = getCountryFlag(b.country);
+    });
+
+    const brands = rawBrands.sort((a, b) => a.name.localeCompare(b.name, 'tr'));
+
+    const grid = document.getElementById("catalogGrid");
+    const searchInput = document.getElementById("searchInput");
+    const statsCount = document.getElementById("statsCount");
+    const clearAllFiltersBtn = document.getElementById("clearAllFiltersBtn");
+
+    let currentLetter = 'ALL';
+    let currentEngineFilter = 'ALL';
+    let currentCountryFilter = 'ALL';
+
+    const alphabet = ['ALL', ...new Set(brands.map(b => b.name.charAt(0).toUpperCase()))].sort((a,b) => a === 'ALL' ? -1 : a.localeCompare(b, 'tr'));
+
+    function renderAlphabetPagination() {
+      const container = document.getElementById("alphabetPaginationContainer");
+      if (!container) return;
+
+      const currentIndex = alphabet.indexOf(currentLetter);
+      let html = `<div class="alphabet-pagination">`;
+
+      if (currentIndex > 0) {
+        const prevLetter = alphabet[currentIndex - 1];
+        html += `<button type="button" class="alpha-page-btn" onclick="selectAlphabetLetter('${prevLetter}')">&lt;</button>`;
+      }
+
+      alphabet.forEach((letter, index) => {
+        const isFirstOrLast = (index === 0 || index === alphabet.length - 1);
+        const isNearCurrent = Math.abs(index - currentIndex) <= 1;
+
+        if (isFirstOrLast || isNearCurrent) {
+          const activeClass = (letter === currentLetter) ? "active" : "";
+          html += `<button type="button" class="alpha-page-btn ${activeClass}" onclick="selectAlphabetLetter('${letter}')">${letter}</button>`;
+        } else if (index === currentIndex - 2 || index === currentIndex + 2) {
+          html += `<span class="alpha-dots">...</span>`;
+        }
+      });
+
+      if (currentIndex < alphabet.length - 1) {
+        const nextLetter = alphabet[currentIndex + 1];
+        html += `<button type="button" class="alpha-page-btn" onclick="selectAlphabetLetter('${nextLetter}')">&gt;</button>`;
+      }
+
+      html += `</div>`;
+      container.innerHTML = html;
+    }
+
+    function selectAlphabetLetter(letter) {
+      currentLetter = letter;
+      renderAlphabetPagination();
+      checkFilterResetState();
+      render();
+    }
+
+    function getModelEngine(brandName, modelName) {
+      const b = (brandName || "").toLowerCase();
+      const m = (modelName || "").toLowerCase();
+
+      let num = parseInt(m.replace(/\D/g, "")) || 38;
+      if (num > 1000) num = Math.floor(num / 100);
+
+      // CUMMINS MOTORLAR (Bénéteau Swift Trawler, Nordhavn, Carver vb.)
+      const isBeneteau = b.includes("beneteau") || b.includes("bénéteau");
+      if ((isBeneteau && (m.includes("swift") || m.includes("trawler"))) || b.includes("nordhavn")) {
+        if (num >= 47) return "Cummins QSM 11";
+        if (num >= 40) return "Cummins QSC 8.3";
+        return "Cummins QSB 6.7";
+      }
+
+      // SAC & GELENEKSEL TRAWLERLAR (Scania & Ağır Hizmet Cummins)
+      if (b.includes("ada yat") || b.includes("kargı") || b.includes("hardanger") || b.includes("linssen") || (b.includes("trawler") && !isBeneteau)) {
+        if (num >= 24) return "Scania DI16 090M V8";
+        if (num >= 18) return "Scania DI13 092M";
+        if (num >= 14) return "Scania DI09";
+        return "Cummins QSK 19";
+      }
+
+      // MERCURY DIŞTAN TAKMA
+      if (b.includes("boston") || b.includes("axopar") || b.includes("quicksilver") || b.includes("brabus") || b.includes("saxdor") || b.includes("dromeas") || b.includes("formula") || b.includes("flipper")) {
+        if (b.includes("brabus") || m.includes("racing") || num >= 45) return "Mercury Racing 450R / 500R";
+        if (num >= 37) return "Mercury Verado 600 V12";
+        if (num >= 30) return "Mercury Verado 350 / 400 V10";
+        if (num >= 24) return "Mercury Verado 250 / 300 V8";
+        if (num >= 19) return "Mercury 200 / 225 V6";
+        return "Mercury 150 FourStroke";
+      }
+
+      // YAMAHA DIŞTAN TAKMA
+      if (b.includes("jeanneau") || b.includes("safter") || b.includes("yerliyurt") || b.includes("capelli") || b.includes("zodiac") || b.includes("rota") || b.includes("anka") || b.includes("maral") || b.includes("isatek")) {
+        if (num >= 38) return "Yamaha XTO 450 V8 Offshore";
+        if (num >= 32) return "Yamaha XTO 425 V8";
+        if (num >= 26) return "Yamaha F250 / F300 V6 Offshore";
+        if (num >= 20) return "Yamaha F200 / F225";
+        return "Yamaha F115 / F150";
+      }
+
+      // BÜYÜK YATLAR & MEGA YATLAR (MAN / CAT)
+      if (num >= 90 || b.includes("bilgin") || b.includes("sanlorenzo") || b.includes("mangusta") || b.includes("benetti") || b.includes("custom line") || b.includes("heesen")) {
+        if (num >= 100) return "CAT C32 ACERT";
+        if (num >= 80) return "MAN V12-2000";
+        return "MAN V12-1900";
+      }
+      if (num >= 68 && num < 80) {
+        if (num >= 74) return "MAN V12-1400";
+        return "MAN V8-1200";
+      }
+      if (num >= 60 && num < 68) {
+        if (b.includes("viking") || b.includes("hatteras") || b.includes("bertram")) return "CAT C18 ACERT";
+        if (num >= 64) return "MAN V8-1000";
+        return "MAN i6-730 / 800";
+      }
+      if (num >= 54 && num < 60 && (b.includes("viking") || b.includes("hatteras") || b.includes("bertram") || b.includes("tiara"))) {
+        return "CAT C12.9";
+      }
+
+      // VOLVO PENTA IPS & D-SERİSİ
+      if (num >= 62) return "Volvo Penta IPS 1350 (D13)";
+      if (num >= 56) return "Volvo Penta IPS 1050 (D11)";
+      if (num >= 50 && num < 56) return "Volvo Penta IPS 800 (D8)";
+      if (num >= 42 && num < 50) return "Volvo Penta IPS 650 (D6)";
+      if (num >= 36 && num < 42) return "Volvo Penta D6-440";
+      if (num >= 30 && num < 36) return "Volvo Penta D4-300 / 320";
+      if (num >= 24 && num < 30) return "Volvo Penta D3-220";
+      if (num >= 18 && num < 24) return "Volvo Penta D2-75";
+      if (num < 18) return "Volvo Penta D1-30";
+
+      return "Volvo Penta IPS 650 (D6)";
+    }
+
+    function isEngineMatch(brandName, modelName, filter) {
+      if (!filter || filter === 'ALL') return true;
+      const eng = (getModelEngine(brandName, modelName) || "").toLowerCase();
+      const f = (filter || "").toLowerCase();
+
+      if (f.includes('volvo')) return eng.includes('volvo');
+      if (f.includes('man')) return eng.includes('man');
+      if (f.includes('cat')) return eng.includes('cat') || eng.includes('caterpillar');
+      if (f.includes('scania')) return eng.includes('scania');
+      if (f.includes('cummins')) return eng.includes('cummins');
+      if (f.includes('mercury')) return eng.includes('mercury');
+      if (f.includes('yamaha')) return eng.includes('yamaha');
+
+      return eng.includes(f);
+    }
+
+    function filterByCountry(country, btnElement) {
+      btnElement.parentElement.querySelectorAll(".filter-chip").forEach(c => c.classList.remove("active"));
+      btnElement.classList.add("active");
+      currentCountryFilter = country;
+      checkFilterResetState();
+      render();
+    }
+
+      function filterByEngine(engineType, btnElement) {
+      // Bütün makine butonlarından active sınıfını temizle
+        document.querySelectorAll('.engine-chip-wrapper .filter-chip, .filter-sub-bar:nth-child(2) .filter-chip').forEach(c => {
+        c.classList.remove('active');
+  }   );
+  
+  if (btnElement) {
+    btnElement.classList.add('active');
+  }
+  
+  currentEngineFilter = engineType;
+  checkFilterResetState();
+  render();
+}
+
+    function checkFilterResetState() {
+      const q = searchInput.value.trim();
+      if (currentCountryFilter !== 'ALL' || currentEngineFilter !== 'ALL' || currentLetter !== 'ALL' || q !== '') {
+        clearAllFiltersBtn.style.display = 'inline-block';
+      } else {
+        clearAllFiltersBtn.style.display = 'none';
+      }
+    }
+
+    function resetAllFilters() {
+      currentCountryFilter = 'ALL';
+      currentEngineFilter = 'ALL';
+      currentLetter = 'ALL';
+      searchInput.value = '';
+
+      document.querySelectorAll(".filter-sub-bar").forEach(bar => {
+        bar.querySelectorAll(".filter-chip").forEach((c, idx) => {
+          if (idx === 0) c.classList.add("active");
+          else c.classList.remove("active");
+        });
+      });
+
+      renderAlphabetPagination();
+      checkFilterResetState();
+      render();
+    }
+
+    const engineConfigs = [
+      { key: 'Volvo', filterVal: 'Volvo IPS', label: 'Volvo Penta Marine' },
+      { key: 'MAN', filterVal: 'MAN', label: 'MAN Engines' },
+      { key: 'CAT', filterVal: 'CAT', label: 'Caterpillar (CAT) Marine' },
+      { key: 'Scania', filterVal: 'Scania', label: 'Scania Marine' },
+      { key: 'Cummins', filterVal: 'Cummins', label: 'Cummins Marine' },
+      { key: 'Mercury', filterVal: 'Mercury', label: 'Mercury Marine' },
+      { key: 'Yamaha', filterVal: 'Yamaha', label: 'Yamaha Marine' }
+    ];
+
+    function populateEngineDropdowns() {
+      engineConfigs.forEach(eng => {
+        const box = document.getElementById('dropdown-' + eng.key);
+        if (!box) return;
+
+        let dbModels = [];
+        Object.keys(engineDatabase).forEach(dbKey => {
+          if (dbKey.toLowerCase().includes(eng.key.toLowerCase())) {
+            dbModels.push({ name: dbKey, data: engineDatabase[dbKey] });
+          }
+        });
+
+        let matchedBoats = [];
+        rawBrands.forEach(b => {
+          b.series.forEach(s => {
+            s.models.forEach(m => {
+              if (isEngineMatch(b.name, m, eng.filterVal)) {
+                matchedBoats.push({ brand: b.name, series: s.name, model: m });
+              }
+            });
+          });
+        });
+
+        let html = `<div style="color:#38bdf8; font-weight:800; font-size:12px; border-bottom:1px solid rgba(56,189,248,0.25); padding-bottom:4px; margin-bottom:8px;">⚓ ${eng.label}</div>`;
+        
+        html += `<div style="margin-bottom:8px;">`;
+        html += `<div style="color:#94a3b8; font-size:10px; font-weight:700; text-transform:uppercase; margin-bottom:4px;">Dünya Motor Serileri (${dbModels.length} Model - Tıkla & İncele):</div>`;
+        
+        dbModels.forEach(mItem => {
+          const safeKey = mItem.name.replace(/'/g, "\\'");
+          html += `
+            <button type="button" class="engine-sub-item-btn" onclick="openSpecificEngineModal('${safeKey}')" title="Teknik föyü ve özelliklerini görüntüle">
+              <span>⚡ ${mItem.name}</span>
+              <span class="hp-tag">${mItem.data.hp}</span>
+            </button>
+          `;
+        });
+        html += `</div>`;
+
+        html += `<div style="border-top:1px solid rgba(255,255,255,0.08); padding-top:6px;">`;
+        html += `<div style="color:#94a3b8; font-size:10px; font-weight:700; text-transform:uppercase; margin-bottom:4px;">Kullanan Tekneler (${matchedBoats.length}):</div>`;
+        
+        matchedBoats.slice(0, 3).forEach(bItem => {
+          html += `<div style="color:#cbd5e1; font-size:10.5px; padding:1px 0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">🔹 ${bItem.brand} ${bItem.model}</div>`;
+        });
+
+        if (matchedBoats.length > 3) {
+          html += `
+            <button type="button" onclick="openAllBoatsModal('${eng.key}', '${eng.label}')" style="margin-top:6px; width:100%; background:rgba(56,189,248,0.15); border:1px solid var(--neon-blue); color:#38bdf8; padding:5px 8px; border-radius:6px; font-size:10.5px; font-weight:700; cursor:pointer; transition:all 0.2s;" onmouseover="this.style.background='var(--neon-blue)';this.style.color='#020617'" onmouseout="this.style.background='rgba(56,189,248,0.15)';this.style.color='#38bdf8'">
+              🔍 +${matchedBoats.length - 3} Model Daha (Tam Listeyi Gör &bull; ${matchedBoats.length} Tekne)
+            </button>
+          `;
+        }
+        html += `</div>`;
+
+        box.innerHTML = html;
+      });
+    }
+
+    function openSpecificEngineModal(engineKey) {
+      const data = engineDatabase[engineKey];
+      if (!data) return;
+
+      document.getElementById("eTitle").innerText = data.title;
+      document.getElementById("e_hp").innerText = data.hp;
+      document.getElementById("e_cylinders").innerText = data.cylinders;
+      document.getElementById("e_displacement").innerText = data.displacement;
+      document.getElementById("e_fuel").innerText = data.fuel;
+      document.getElementById("e_aspiration").innerText = data.aspiration;
+      document.getElementById("e_propulsion").innerText = data.propulsion;
+      document.getElementById("e_weight").innerText = data.weight;
+
+      let matchedList = [];
+      rawBrands.forEach(b => {
+        b.series.forEach(s => {
+          s.models.forEach(m => {
+            const boatEngine = getModelEngine(b.name, m);
+            if (boatEngine === engineKey || engineKey.includes(boatEngine) || boatEngine.includes(engineKey)) {
+              matchedList.push(`${b.name} ${m}`);
+            }
+          });
+        });
+      });
+
+      const boatsCell = document.getElementById("e_boats");
+      if (boatsCell) {
+        if (matchedList.length > 0) {
+          boatsCell.innerHTML = matchedList.map(boat => `<div>⚓ ${boat}</div>`).join("");
+        } else {
+          boatsCell.innerText = "Katalogda doğrudan eşleşen tekne modeli bulunamadı.";
+        }
+      }
+
+      document.getElementById("engineDetailModal").style.display = "flex";
+    }
+
+    function openAllBoatsModal(engineKey, engineLabel) {
+      const cfg = engineConfigs.find(c => c.key === engineKey);
+      if (!cfg) return;
+
+      let matchedBoats = [];
+      rawBrands.forEach(b => {
+        b.series.forEach(s => {
+          s.models.forEach(m => {
+            if (isEngineMatch(b.name, m, cfg.filterVal)) {
+              const specificEngine = getModelEngine(b.name, m);
+              matchedBoats.push({ 
+                brand: b.name, 
+                series: s.name, 
+                model: m,
+                engine: specificEngine
+              });
+            }
+          });
+        });
+      });
+
+      document.getElementById("aebTitle").innerText = `${engineLabel} Kullanan Tekneler`;
+      document.getElementById("aebSubtitle").innerText = `Katalogda ${matchedBoats.length} Tekne ve Motoryat Bu Güç Ünitesiyle Eşleşti`;
+
+      const gridContainer = document.getElementById("allEngineBoatsGrid");
+      gridContainer.innerHTML = "";
+
+      matchedBoats.forEach(item => {
+        const pill = document.createElement("div");
+        pill.className = "matrix-boat-pill";
+        pill.title = "Tekne detayını açmak için tıkla";
+        pill.innerHTML = `
+          <span class="matrix-brand">${item.brand}</span>
+          <span class="matrix-model">${item.model}</span>
+          <span style="font-size: 10px; color: #38bdf8; margin-top: 3px; font-weight: 600;">⚡ ${item.engine}</span>
+        `;
+        pill.onclick = () => {
+          document.getElementById("allEngineBoatsModal").style.display = "none";
+          openModal(item.brand, item.series, item.model);
+        };
+        gridContainer.appendChild(pill);
+      });
+
+      document.getElementById("allEngineBoatsModal").style.display = "flex";
+    }
+
+      function normalizeTr(str) {
+      if (!str) return "";
+      return str
+        .replace(/İ/g, "i")
+        .replace(/I/g, "ı")
+        .toLocaleLowerCase("tr-TR")
+        .trim();
+    }
+
+    function render(customQuery) {
+      grid.innerHTML = "";
+      const rawQ = (typeof customQuery === "string" ? customQuery : (searchInput ? searchInput.value : ""));
+      const q = normalizeTr(rawQ);
+
+      const filtered = brands.filter(b => {
+        if (currentLetter !== 'ALL' && !normalizeTr(b.name).startsWith(normalizeTr(currentLetter))) {
+          return false;
+        }
+
+        if (currentCountryFilter !== 'ALL' && !normalizeTr(b.country).includes(normalizeTr(currentCountryFilter))) {
+          return false;
+        }
+        
+        if (currentEngineFilter !== 'ALL') {
+          const hasEngine = b.series.some(s => s.models.some(m => isEngineMatch(b.name, m, currentEngineFilter)));
+          if (!hasEngine) return false;
+        }
+
+        if (!q) return true;
+        
+        const brandMatch = normalizeTr(b.name).includes(q) || normalizeTr(b.country).includes(q);
+        const seriesMatch = b.series.some(s => 
+          normalizeTr(s.name).includes(q) || 
+          s.models.some(m => normalizeTr(m).includes(q))
+        );
+        
+        return brandMatch || seriesMatch;
+      });
+
+      statsCount.innerText = `Toplam ${filtered.length} Tersane / Marka Listeleniyor`;
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 50px 10px; font-size: 13px;">Seçilen kriterlere uygun tekne veya tersane bulunamadı. <br><button onclick="resetAllFilters()" style="margin-top: 10px; background: var(--neon-blue); border: none; color: #020617; padding: 6px 14px; border-radius: 6px; font-weight: 700; cursor: pointer;">Filtreleri Sıfırla</button></div>`;
+        return;
+      }
+
+      filtered.forEach(b => {
+        let seriesHtml = "";
+        b.series.forEach(s => {
+          const modelsHtml = s.models.map(m => {
+            const matchesEngine = isEngineMatch(b.name, m, currentEngineFilter);
+            let stateClass = "";
+            if (currentEngineFilter !== 'ALL') {
+              stateClass = matchesEngine ? "highlighted" : "dimmed";
+            }
+            return `<button class="model-btn ${stateClass}" onclick="openModal('${b.name}', '${s.name}', '${m}')">${m}</button>`;
+          }).join("");
+
+          seriesHtml += `
+            <div class="series-block">
+              <div class="series-title">${s.name}</div>
+              <div class="models-list">${modelsHtml}</div>
+            </div>
+          `;
+        });
+
+        const card = document.createElement("div");
+        card.className = "brand-card";
+        card.innerHTML = `
+          <div class="brand-head">
+            <a href="${b.url}" target="_blank" rel="noopener noreferrer" class="brand-logo-frame" title="${b.name} Resmi Sitesini Ziyaret Et">
+              ${b.logo}
+            </a>
+            <div class="brand-meta">
+              <a href="${b.url}" target="_blank" rel="noopener noreferrer" class="brand-link" title="${b.name} Resmi Sitesini Ziyaret Et">
+                <h2>${b.name}</h2>
+                <svg viewBox="0 0 24 24"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3zm5 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7z"/></svg>
+              </a>
+              <div class="brand-country-badge">
+                <span>${b.flag}</span><span>${b.country}</span>
+              </div>
+            </div>
+          </div>
+          <div class="brand-body">
+            ${seriesHtml}
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+
+    function openModal(brand, series, model) {
+      document.getElementById("mTitle").innerText = `${brand} ${model}`;
+      document.getElementById("mSubtitle").innerText = `${series}`;
+
+      let num = parseInt(model.replace(/\D/g, "")) || 35;
+      if (num > 1000) num = Math.floor(num / 100);
+
+      document.getElementById("m_loa").innerText = `${(num * 0.31).toFixed(2)} m (${Math.round(num * 1.02)} ft)`;
+      document.getElementById("m_beam").innerText = `${(num * 0.09).toFixed(2)} m`;
+      document.getElementById("m_draft").innerText = `${(1.0 + (num * 0.01)).toFixed(2)} m`;
+      
+      const selectedEngine = getModelEngine(brand, model);
+      activeSelectedEngine = selectedEngine;
+
+      const engineEl = document.getElementById("m_engine");
+      engineEl.innerHTML = `⚙️ ${selectedEngine} (Teknik Föy İçin Tıkla)`;
+
+      document.getElementById("m_speed").innerText = `${28 + (num % 8)} Knots`;
+      document.getElementById("m_cabins").innerText = num > 25 ? `${Math.min(5, Math.max(1, Math.floor(num / 16)))} Kamara` : "Açık Havuzluk / Günübirlik";
+
+      // Her yeni model açıldığında kutuyu kapalı başlat ve tekne boyuna göre ürünleri hazırla
+      const vanemarBox = document.getElementById("vanemarSpecsBox");
+      if (vanemarBox) vanemarBox.style.display = "none";
+      renderVanemarRecommendations(Math.round(num * 1.02));
+      
+      document.getElementById("specsModal").style.display = "flex";
+    }
+
+    function openEngineDetailModal() {
+      openSpecificEngineModal(activeSelectedEngine);
+    }
+
+    function openReadme() {
+      document.getElementById("readmeModal").style.display = "flex";
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener("input", (e) => {
+        checkFilterResetState();
+        render(e.target.value);
+      });
+    }
+
+    renderAlphabetPagination();
+    render();
+    populateEngineDropdowns();
+    window.openAssistantModal = function() {
+      const modal = document.getElementById("assistantModal");
+      if (modal) {
+        modal.style.display = "flex";
+        setTimeout(() => {
+          const inp = document.getElementById("aiAssistantInput");
+          if (inp) inp.focus();
+        }, 100);
+      } else {
+        console.error("assistantModal elementi bulunamadı!");
+      }
+    };
+
+    window.executeAiAssistantQuery = function() {
+      const input = document.getElementById("aiAssistantInput");
+      if (!input) return;
+      const rawVal = input.value || "";
+      const query = (typeof normalizeTr === "function") ? normalizeTr(rawVal) : rawVal.toLowerCase().trim();
+      
+      const grid = document.getElementById("aiAssistantGrid");
+      const summary = document.getElementById("aiAssistantSummary");
+      if (!query || !grid) return;
+
+      let targetEngines = [];
+      ['volvo', 'man', 'cat', 'scania', 'cummins', 'mercury', 'yamaha'].forEach(eng => {
+        if (query.includes(eng)) targetEngines.push(eng);
+      });
+
+      let targetCountry = "";
+      ['türkiye', 'italya', 'abd', 'ingiltere', 'fransa', 'almanya', 'isveç', 'finlandiya', 'hollanda', 'ispanya'].forEach(c => {
+        if (query.includes(c)) targetCountry = c;
+      });
+
+      let targetHp = null;
+      const hpMatch = query.match(/(\d+)\s*(hp|beygir|bg)/i);
+      if (hpMatch) targetHp = parseInt(hpMatch[1]);
+
+      let results = [];
+      rawBrands.forEach(b => {
+        const brandCountryNorm = (typeof normalizeTr === "function") ? normalizeTr(b.country) : b.country.toLowerCase();
+        
+        b.series.forEach(s => {
+          s.models.forEach(m => {
+            const boatEngine = getModelEngine(b.name, m);
+            const engineSpecs = (typeof engineDatabase !== "undefined" && engineDatabase[boatEngine]) ? engineDatabase[boatEngine] : {};
+            const engNorm = (typeof normalizeTr === "function") ? normalizeTr(boatEngine) : (boatEngine || "").toLowerCase();
+
+            let isMatch = true;
+
+            if (targetEngines.length > 0) {
+              const matchesAnyEngine = targetEngines.some(te => engNorm.includes(te));
+              if (!matchesAnyEngine) isMatch = false;
+            }
+
+            if (targetCountry && !brandCountryNorm.includes(targetCountry)) {
+              isMatch = false;
+            }
+
+           // HP / Beygir Gücü Filtresi (Tam Sayısal Sınır Kontrolü)
+            if (targetHp && engineSpecs.hp) {
+              // Motorun HP metnindeki TÜM sayıları dizi olarak bul (örn: "1.200 HP" -> [1200], "250 / 300 V8" -> [250, 300])
+              const hpNumbers = (engineSpecs.hp.match(/\d+[\.,]?\d*/g) || []).map(n => {
+                return parseInt(n.replace(/\./g, "").replace(/,/g, "")) || 0;
+              });
+
+              const maxHpInEngine = Math.max(...hpNumbers, 0);
+
+              if (query.includes("üstü") || query.includes("uzeri") || query.includes("fazla") || query.includes("büyük")) {
+                if (maxHpInEngine < targetHp) isMatch = false;
+              } else if (query.includes("altı") || query.includes("az") || query.includes("küçük")) {
+                if (maxHpInEngine > targetHp) isMatch = false;
+              } else {
+                // Tam sayı kontrolü: Sayılardan BİRİ doğrudan targetHp (örn: 200) ile birebir eşit mi?
+                // 1200 veya 2000 elenir, sadece tam 200 veya aralıkta 200 olanlar (örn: 200/225) geçer.
+                const hasExactNumber = hpNumbers.some(num => num === targetHp);
+                if (!hasExactNumber) {
+                  isMatch = false;
+                }
+              }
+            }
+            if (query.includes("trawler") && !(s.name + m).toLowerCase().includes("trawler")) isMatch = false;
+            if (query.includes("fly") && !(s.name + m).toLowerCase().includes("fly")) isMatch = false;
+
+            if (isMatch) {
+              results.push({
+                brand: b.name,
+                model: m,
+                series: s.name,
+                country: b.country,
+                engine: boatEngine,
+                hp: engineSpecs.hp || "N/A"
+              });
+            }
+          });
+        });
+      });
+
+      if (summary) {
+        summary.innerHTML = `🎯 <strong>"${rawVal}"</strong> sorgusuna uygun <strong>${results.length}</strong> tekne/model bulundu:`;
+      }
+
+      if (results.length === 0) {
+        grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: #fca5a5; padding: 25px;">Kriterlere uyan tekne bulunamadı. Lütfen "Volvo tekneler" veya "300 hp Mercury" gibi bir ifade deneyin.</div>`;
+        return;
+      }
+
+      grid.innerHTML = results.map(item => `
+        <div class="matrix-boat-pill" onclick="document.getElementById('assistantModal').style.display='none'; openModal('${item.brand.replace(/'/g, "\\'")}', '${item.series.replace(/'/g, "\\'")}', '${item.model.replace(/'/g, "\\'")}')" style="border-color: rgba(168, 85, 247, 0.4);">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span class="matrix-brand" style="color: #c084fc;">${item.brand}</span>
+            <span style="font-size: 10px; color: #94a3b8;">${item.country}</span>
+          </div>
+          <span class="matrix-model">${item.model}</span>
+          <span style="font-size: 10.5px; color: #38bdf8; margin-top: 3px; font-weight: 700;">⚡ ${item.engine}</span>
+          <span style="font-size: 9.5px; color: #e9d5ff; background: rgba(168,85,247,0.2); padding: 2px 4px; border-radius: 4px; width: fit-content; margin-top: 2px;">Güç: ${item.hp}</span>
+        </div>
+      `).join("");
+    };
+  </script>
+</body>
+</html>
